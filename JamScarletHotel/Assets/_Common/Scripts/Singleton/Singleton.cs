@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
     [field: SerializeField, Foldout("Singleton")] public bool dontDestroyOnLoad = false;
-    [SerializeField, Foldout("Singleton")] private bool killInstanceOnAwake = false;
+    [SerializeField, Foldout("Singleton")] private bool forceThisInstanceOnAwake = false;
 
     /// <summary>
     /// The instance.
@@ -30,7 +30,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
             instance = this as T;
         else if (instance != this)
         {
-            if (killInstanceOnAwake)
+            if (forceThisInstanceOnAwake)
             {
                 Destroy(instance.gameObject);
                 instance = this as T;
