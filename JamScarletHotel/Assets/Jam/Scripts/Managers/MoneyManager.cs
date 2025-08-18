@@ -1,9 +1,8 @@
 using UnityEngine;
-using WG.Common;
 using UnityEngine.UI;
 using TMPro;
 
-public class MoneyManager : Singleton<TimeManager>
+public class MoneyManager : Singleton<MoneyManager>
 {
 
     public int money = 0;
