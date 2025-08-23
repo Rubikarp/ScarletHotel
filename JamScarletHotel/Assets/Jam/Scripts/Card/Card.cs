@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using AYellowpaper;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class Card : MonoBehaviour,
@@ -19,6 +20,8 @@ public class Card : MonoBehaviour,
     [Header("Info")]
     [SerializeField, ReadOnly] private Vector3 dragOffset;
     public CardSlot currentSlot;
+    [RequireInterface(typeof(ICardData))]
+    public ICardData data;
 
     [field: SerializeField, ReadOnly] public bool isHovering { get; private set; }
     [field: SerializeField, ReadOnly] public bool isDragging { get; private set; }
