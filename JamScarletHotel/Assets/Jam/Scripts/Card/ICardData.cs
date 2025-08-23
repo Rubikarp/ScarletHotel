@@ -30,4 +30,5 @@ public enum EInfluence
     Occult = 1 << 3, // 8
     Addiction = 1 << 4, // 16
     Artistic = 1 << 5, // 32
+    Reconstruction = 1 << 6,
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a430efdad79bea4e8656eb6b706f94d, type: 3}
+  m_Name: ObjectCard_KIt_de_secours
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectCardData
+  title: KIt de secours
+  artwork: {fileID: 0}
+  description: "Fil, aiguille, pinces, teinture d\u2019iode, \xE9ther et coca\xEFne.
+    Tous les ingr\xE9dients n\xE9cessaires \xE0 une bonne pratique de la m\xE9decine.  "
+  influence: 64
+  state: 0
