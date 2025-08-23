@@ -16,8 +16,8 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 1728c24567490f045b6f0acc4aad7aea, type: 3}
   description: 
   influence: 0
-  race: 0
-  state: 0
-  apparence: 0
-  job: 0
-  salary: 0
+  defaultRace: 0
+  defaultState: 0
+  defaultApparence: 0
+  <DefaultJob>k__BackingField: 1
+  <DefaultSalary>k__BackingField: 10

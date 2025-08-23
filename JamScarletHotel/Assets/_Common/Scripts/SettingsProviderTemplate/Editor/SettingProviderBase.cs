@@ -1,10 +1,16 @@
 using System;
 using UnityEngine;
+using SettingsTools;
+
 #if UNITY_EDITOR
 using UnityEditor;
+#endif
 
+#if UNITY_EDITOR
 public class SettingProviderBase<T> : SettingsProvider where T : ScriptableObject
 {
+    static string NameSpace = "_PenAndPixel";
+
     protected static Editor editor;
     public SettingProviderBase(string path, SettingsScope scope) : base(path, scope) { }
 
@@ -14,7 +20,7 @@ public class SettingProviderBase<T> : SettingsProvider where T : ScriptableObjec
 
     public static SettingsProvider CreateProviderForProjectSettings()
     {
-        SettingProviderBase<T> setProvidBase = new SettingProviderBase<T>("_WorldGame/" + typeof(T).Name, SettingsScope.Project);
+        SettingProviderBase<T> setProvidBase = new SettingProviderBase<T>(NameSpace + "/" + typeof(T).Name, SettingsScope.Project);
         setProvidBase.guiHandler = OnProviderGUI;
 
         return setProvidBase;
