@@ -25,6 +25,8 @@ public class EmployeeCardData : CardDataBase, ICardData, IPeopleCardData
     public EJob job;
     [SerializeField]
     public int salary;
+
+    protected override string GetScoName() => $"EmployeeCard_{Title.Replace(" ", "_").Replace("/", "_")}";
 }
 
 public enum EJob

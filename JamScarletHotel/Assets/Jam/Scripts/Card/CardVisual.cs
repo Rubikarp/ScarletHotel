@@ -12,14 +12,14 @@ public class CardVisual : MonoBehaviour
     private Card card;
 
     private RectTransform cardRect;
-    [RequireInterface(typeof(ICardData))]
-    private ICardData cardData;
+    [SerializeField, RequireInterface(typeof(ICardData))]
+    private ScriptableObject cardData;
     public ICardData CardData
     {
-        get => cardData;
+        get => (ICardData)cardData;
         set
         {
-            cardData = value;
+            cardData = (ScriptableObject)value;
             UpdateVisuals();
         }
     }
@@ -82,10 +82,10 @@ public class CardVisual : MonoBehaviour
 
     private void UpdateVisuals()
     {
-        artwork.sprite = cardData?.Artwork;
+        artwork.sprite = CardData?.Artwork;
 
-        titleText.text = cardData?.Title ?? "Lorem Ipsum";
-        descriptionText.text = cardData?.Description ?? "No Description";
+        titleText.text = CardData?.Title ?? "Lorem Ipsum";
+        descriptionText.text = CardData?.Description ?? "No Description";
     }
 
     public void OnValidate()
@@ -99,7 +99,7 @@ public class CardVisual : MonoBehaviour
         if (card != null)
         {
             cardRect = card.GetComponent<RectTransform>();
-            CardData = card.data;
+            CardData = card.CardData;
         }
     }
 }

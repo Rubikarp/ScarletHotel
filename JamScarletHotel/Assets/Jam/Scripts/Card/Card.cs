@@ -20,8 +20,13 @@ public class Card : MonoBehaviour,
     [Header("Info")]
     [SerializeField, ReadOnly] private Vector3 dragOffset;
     public CardSlot currentSlot;
-    [RequireInterface(typeof(ICardData))]
-    public ICardData data;
+    [SerializeField, RequireInterface(typeof(ICardData))]
+    private ScriptableObject cardData;
+    public ICardData CardData
+    {
+        get => (ICardData)cardData;
+        set => cardData = (ScriptableObject)value;
+    }
 
     [field: SerializeField, ReadOnly] public bool isHovering { get; private set; }
     [field: SerializeField, ReadOnly] public bool isDragging { get; private set; }

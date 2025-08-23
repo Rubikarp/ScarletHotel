@@ -10,9 +10,10 @@ public class CardSlot : MonoBehaviour
 
     [Header("Info")]
     [field: SerializeField, ReadOnly] public Card CurrentCard { get; private set; } = null;
-
+    [field: SerializeField] public ECardType AcceptedType { get; private set; } = ECardType.Any;
+    [field: SerializeField] public EInfluence RequiredInfluences { get; private set; } = 0;
     public bool IsOccupied => CurrentCard != null;
-    
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -20,7 +21,17 @@ public class CardSlot : MonoBehaviour
 
     public bool CanSlotCard(Card card)
     {
-        //TODO: Check if the card can be slotted in this slot via conditions
+        if (IsOccupied) return false;
+        if (card == null) return false;
+        if(card.CardData == null) return false;
+
+        var data = card.CardData;
+        // Check if the card type matches the accepted type
+        if ((data.CardType & AcceptedType) == 0) return false;
+
+        // Check if the card's influence meets the required influence
+        if ((data.Influence & RequiredInfluences) != RequiredInfluences) return false;
+
         return true;
     }
 

@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 1, a: 0.011764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragOffset: {x: 0, y: 0, z: 0}
   currentSlot: {fileID: 0}
+  cardData: {fileID: 11400000, guid: 04506b9dcf0ce7e4c84f814e3941b80b, type: 2}
   <isHovering>k__BackingField: 0
   <isDragging>k__BackingField: 0
   EnterHoverEvent:
@@ -256,20 +257,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3682732346174297606, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_text
-      value: No Description
+      value: Fait trembler les gens et les clous
       objectReference: {fileID: 0}
+    - target: {fileID: 5462204014492114298, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e8b4730c62c9184195f1046f3aab106, type: 3}
     - target: {fileID: 7699052634655529002, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_Name
       value: CardVisual
       objectReference: {fileID: 0}
     - target: {fileID: 7937686391785925176, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_text
-      value: Lorem Ipsum
+      value: GrosMartO
       objectReference: {fileID: 0}
     - target: {fileID: 8248073922778265125, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: card
       value: 
       objectReference: {fileID: 6530229933268035328}
+    - target: {fileID: 8248073922778265125, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 04506b9dcf0ce7e4c84f814e3941b80b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

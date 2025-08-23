@@ -25,4 +25,6 @@ public class ClientCardData : CardDataBase, ICardData, IPeopleCardData
     public bool IsEmployable { get; private set; } = false;
     [SerializeField, ShowIf("IsEmployable")]
     public EmployeeCardData employeeCard;
+
+    protected override string GetScoName() => $"ClientCard_{Title.Replace(" ", "_").Replace("/", "_")}";
 }

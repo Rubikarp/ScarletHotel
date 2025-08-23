@@ -18,6 +18,7 @@ public enum ECardType
     Employee = 1 << 2, // 4
 
     People = Client | Employee, // 6
+    Any = Object | People // 7
 }
 
 [Flags]

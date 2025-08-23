@@ -18,4 +18,6 @@ public class ObjectCardData : CardDataBase, ICardData
     [SerializeField]
     private EObjectState state;
     public EObjectState State => state;
+
+    protected override string GetScoName() => $"ObjectCard_{Title.Replace(" ", "_").Replace("/", "_")}";
 }
