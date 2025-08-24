@@ -17,4 +17,5 @@ MonoBehaviour:
   description: "Une pile de vieux papiers couverts de symbole \xE9sot\xE9riques,
     titr\xE9s \u201CRituale ad ligandos et liberandos spiritus\u201D"
   influence: 8
-  state: 0
+  defaultState: 0
+  defaultType: 16

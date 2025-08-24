@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a430efdad79bea4e8656eb6b706f94d, type: 3}
-  m_Name: ObjectCard_KIt_de_secours
+  m_Name: ObjectCard_Echeance_de_chair
   m_EditorClassIdentifier: Assembly-CSharp::ObjectCardData
-  title: KIt de secours
+  title: Echeance de chair
   artwork: {fileID: 0}
-  description: "Fil, aiguille, pinces, teinture d\u2019iode, \xE9ther et coca\xEFne.
-    Tous les ingr\xE9dients n\xE9cessaires \xE0 une bonne pratique de la m\xE9decine.  "
-  influence: 64
+  description: "Description : Votre avis d\u2019\xE9ch\xE9ance de loyer. Celui-ci
+    lit \u201Cune livre de chair.\u201D "
+  influence: 128
   defaultState: 0
-  defaultType: 20
+  defaultType: 8
