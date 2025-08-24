@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728c7972a6316d541aca16d3e7717efc, type: 3}
-  m_Name: SettingsProviderSettings
-  m_EditorClassIdentifier: SettingsTools::SettingsTools.SettingsProviderSettings
-  nameSpace: _PenPixel
-  settingsName: GameEconomy
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_TestBloc 2
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: TestBloc
+  aswerPossibles: []

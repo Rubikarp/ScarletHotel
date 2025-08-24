@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(fileName = "SB_New_Story_Bloc\"", menuName = "Narration/StoryBloc")]
+[CreateAssetMenu(fileName = "SB_New_Story_Bloc", menuName = "Narration/StoryBloc")]
 public class StoryBloc : ScriptableObject
 {
     public string blocName = "New Story Bloc";

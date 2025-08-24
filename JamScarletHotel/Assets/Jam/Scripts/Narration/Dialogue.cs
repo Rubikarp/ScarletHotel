@@ -4,7 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    [RequireInterface(typeof(IPeopleCardData))] private ScriptableObject Character;
+    [RequireInterface(typeof(IPeopleCardData)), SerializeField] 
+    private ScriptableObject Character;
     [Multiline(3)] public string dialogueText = "Lorem Ipsum ...";
 
     public string LocutorName

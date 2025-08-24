@@ -17,7 +17,7 @@ public class StoryLine : ScriptableObject
     [Min(0)] public int seasonStoryStart = 0;
     [Range(0, 1)] public float seasonTriggerTime = 0;
 
-    [Header("Info")]
+    [Header("Info"), Expandable]
     public StoryBloc[] storyBlocs;
 
     protected virtual string GetScoName() => $"SL_{storyName.Replace(" ", "_").Replace("/", "_")}";
