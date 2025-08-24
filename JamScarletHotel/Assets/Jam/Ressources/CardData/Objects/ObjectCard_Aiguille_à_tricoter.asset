@@ -16,4 +16,5 @@ MonoBehaviour:
   artwork: {fileID: 0}
   description: "L\u2019accessoire essentiel pour fabriquer un chandail pour l\u2019hiver."
   influence: 1
-  state: 0
+  defaultState: 0
+  defaultType: 16

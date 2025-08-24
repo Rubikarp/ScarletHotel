@@ -31,4 +31,5 @@ public enum EInfluence
     Addiction = 1 << 4, // 16
     Artistic = 1 << 5, // 32
     Reconstruction = 1 << 6,
+    Demonic = 1 << 7,
 }

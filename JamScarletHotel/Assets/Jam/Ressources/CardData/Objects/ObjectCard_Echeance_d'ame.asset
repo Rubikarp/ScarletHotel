@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a430efdad79bea4e8656eb6b706f94d, type: 3}
-  m_Name: ObjectCard_Revolver
+  m_Name: ObjectCard_Echeance_d'ame
   m_EditorClassIdentifier: Assembly-CSharp::ObjectCardData
-  title: Revolver
+  title: Echeance d'ame
   artwork: {fileID: 0}
-  description: " Un moyen radical pour interrompre l\u2019existence de son prochain. "
-  influence: 1
-  state: 0
+  description: "Description : Votre avis d\u2019\xE9ch\xE9ance de loyer. Celui-ci
+    lit \u201Cle contrat pour une \xE2me.\u201D "
+  influence: 128
+  defaultState: 0
+  defaultType: 8

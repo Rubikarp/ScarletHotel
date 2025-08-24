@@ -1,12 +1,21 @@
-﻿using UnityEngine;
+using System;
+using UnityEngine;
 
 public enum  EObjectState
 {
     Clean,
     Dirty,
     Bloody,
-    Burned,
+    Burnt,
     Broken,
+}
+[Flags]
+public enum EObjectType
+{
+    Weapon = 1 <<0 ,
+    Drug = 1 << 2,
+    Contract = 1 << 3,
+    Tool = 1 << 4,
 }
 
 [CreateAssetMenu(fileName = "OC_New_Object", menuName = "Card/ObjectCardData")]
@@ -18,6 +27,10 @@ public class ObjectCardData : BaseCardData, ICardData
     [SerializeField]
     private EObjectState defaultState;
     public EObjectState DefaultState => defaultState;
+
+    [SerializeField]
+    private EObjectType defaultType;
+    public EObjectType DefaultType => defaultType;
 
     protected override string GetScoName() => $"OC_{Title.Replace(" ", "_").Replace("/", "_")}";
 }
