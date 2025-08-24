@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public delegate void TimeTickEvent(float deltaTime);
+public delegate void WeekChangeEvent(int CurrentWeek);
+public delegate void SeasonChangeEvent(int CurrentSeason);
 
 public class TimeManager : Singleton<TimeManager>
 {
@@ -10,28 +12,32 @@ public class TimeManager : Singleton<TimeManager>
     [SerializeField, Expandable]
     private GameTimeSettings gameTimeSettings;
 
+    public int SeasonDuration => gameTimeSettings.SeasonDuration;
+    public int WeekDuration => gameTimeSettings.WeekDuration;
     public float DayDuration => gameTimeSettings.DayDuration;
-    public float SeasonDuration => gameTimeSettings.SeasonDuration;
-    public float WeekDuration => gameTimeSettings.WeekDuration;
 
     [field: Header("Time Info")]
-    [field: SerializeField, ReadOnly] public int DayIndex { get; private set; } = 0;
-    [field: SerializeField, ReadOnly] public int WeekIndex { get; private set; } = 0;
     [field: SerializeField, ReadOnly] public int SeasonIndex { get; private set; } = 0;
+    [field: SerializeField, ReadOnly] public int WeekIndex { get; private set; } = 0;
+    [field: SerializeField, ReadOnly] public int DayIndex { get; private set; } = 0;
     [field: SerializeField, ReadOnly, ProgressBar("DayDuration")] public float GameTime { get; private set; } = 0;
 
     [field: Header("Time Speed")]
     [field: SerializeField, Min(0)] public float GameTimeSpeed { get; private set; } = 1f;
     [field: SerializeField, ReadOnly] public bool IsPaused { get; private set; } = false;
 
-    public TimeTickEvent OnTimeTick;
+    [Header("Event")]
+    public UnityEvent OnWeekChange;
+    public UnityEvent OnSeasonChange;
+    public static TimeTickEvent OnTimeTick;
+    public static WeekChangeEvent OnNewWeek;
+    public static SeasonChangeEvent OnNewSeason;
 
-    public string DayNumber => (DayIndex+1).ToString();
-    public string WeekNumber => (WeekIndex + 1).ToString();
-    public string SeasonNumber => (SeasonIndex + 1).ToString();
     public float DeltaSimulTime => IsPaused ? 0 : Time.deltaTime * GameTimeSpeed;
     public float SeasonProgress => GameTime / SeasonDuration;
-    public bool IsFreeze => GameTimeSpeed <= 0;
+    public string SeasonNumber => (SeasonIndex + 1).ToString();
+    public string WeekNumber => (WeekIndex + 1).ToString();
+    public string DayNumber => (DayIndex + 1).ToString();
 
     protected override void Awake()
     {
@@ -48,33 +54,52 @@ public class TimeManager : Singleton<TimeManager>
         SeasonIndex = 0;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        //print(IsPaused);
         if (IsPaused) return;
 
         float delta = DeltaSimulTime;
         GameTime += delta;
         OnTimeTick?.Invoke(delta);
-        if (GameTime > DayDuration )
+        if (GameTime > DayDuration)
         {
-            DayIndex++;
-            GameTime %= DayDuration;
+            OnNextDay();
+        }
+    }
 
-            Debug.Log($"day n°{DayNumber} start");
-        }
-        if(GameTime+(DayIndex *DayDuration) > DayDuration * WeekDuration*(WeekIndex+1))
+    private void OnNextDay()
+    {
+        DayIndex++;
+        GameTime %= DayDuration;
+        Debug.Log($"Day n°{DayNumber} start");
+
+        if (DayIndex >= WeekDuration + (WeekIndex * WeekDuration))
         {
-            WeekIndex++;
-            Debug.Log($"week n°{WeekNumber} start");
-            //call here event for weekly payment
+            OnNextWeek();
         }
-        if (GameTime+(DayIndex*DayDuration) >= DayDuration * SeasonDuration*(SeasonIndex+1))
+    }
+    private void OnNextWeek()
+    {
+        WeekIndex++;
+        GameTime %= DayDuration;
+        Debug.Log($"Week n°{WeekNumber} start");
+
+        OnNewWeek?.Invoke(WeekIndex);
+        OnWeekChange?.Invoke();
+
+        if (WeekIndex >= SeasonDuration + (SeasonIndex * SeasonDuration))
         {
-            SeasonIndex++;
-            Debug.Log($"Season n°{SeasonNumber} start");
-            //call here event for demonic payment
+            OnNextSeason();
         }
+    }
+    private void OnNextSeason()
+    {
+        SeasonIndex++;
+        GameTime %= DayDuration;
+        Debug.Log($"Season n°{WeekNumber} start");
+
+        OnNewSeason?.Invoke(WeekIndex);
+        OnSeasonChange?.Invoke();
     }
 
     public void TooglePause()

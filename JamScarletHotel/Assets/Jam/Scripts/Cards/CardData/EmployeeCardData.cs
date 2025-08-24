@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "CE_New_Employee", menuName = "Card/EmployeeCardData")]
+[CreateAssetMenu(fileName = "CE_New_Employee", menuName = "CardManipulation/EmployeeCardData")]
 public class EmployeeCardData : BaseCardData, ICardData, IPeopleCardData
 {
     //Fixed Properties for Employee Card Data

@@ -4,8 +4,6 @@ using UnityEngine.Events;
 
 public class GameTimer : MonoBehaviour
 {
-    private TimeManager timeManager;
-
     [field: SerializeField] public float TimerDuration { get; private set; } = 10f;
     [field: SerializeField, ProgressBar("TimerDuration")] public float RemainingTime { get; private set; } = 10f;
     [field: SerializeField] public bool IsActive { get; private set; } = false;
@@ -14,18 +12,17 @@ public class GameTimer : MonoBehaviour
 
     private void Start()
     {
-        timeManager = TimeManager.Instance;
-        timeManager.OnTimeTick += UpdateTimer;
-
+        TimeManager.OnTimeTick += UpdateTimer;
         RemainingTime = TimerDuration = 10f;
         IsActive = false;
     }
     private void OnDestroy()
     {
-        timeManager.OnTimeTick -= UpdateTimer;
         OnTimerEnd.RemoveAllListeners();
-        IsActive = false;
+
+        TimeManager.OnTimeTick -= UpdateTimer;
         RemainingTime = TimerDuration = 0f;
+        IsActive = false;
     }
 
     [Button]

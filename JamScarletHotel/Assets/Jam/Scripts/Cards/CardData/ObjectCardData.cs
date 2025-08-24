@@ -18,7 +18,7 @@ public enum EObjectType
     Tool = 1 << 4,
 }
 
-[CreateAssetMenu(fileName = "OC_New_Object", menuName = "Card/ObjectCardData")]
+[CreateAssetMenu(fileName = "OC_New_Object", menuName = "CardManipulation/ObjectCardData")]
 public class ObjectCardData : BaseCardData, ICardData
 {
     public ECardType CardType => ECardType.Object;

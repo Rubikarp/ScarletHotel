@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using VInspector;
 
-[CreateAssetMenu(fileName = "CC_New_Client", menuName = "Card/ClientCardData")]
+[CreateAssetMenu(fileName = "CC_New_Client", menuName = "CardManipulation/ClientCardData")]
 public class ClientCardData : BaseCardData, ICardData, IPeopleCardData
 {
     //Fixed Properties for Employee Card Data
