@@ -6,6 +6,7 @@ using UnityEditor;
 
 namespace SettingsTools
 {
+    [GameSettings(typeof(SettingsProviderSettings))]
     public class SettingsProviderSettings : SingletonSCO<SettingsProviderSettings>
     {
         [Header("SettingsProvider Settings")]
@@ -60,6 +61,7 @@ namespace SettingsTools
             string soScript =
 $@"using UnityEngine;
 
+[GameSettings(typeof({className}))]
 public class {className} : SingletonSCO<{className}>
 {{
     [field: SerializeField] public int ExampleValue {{ get; private set; }} = 1;

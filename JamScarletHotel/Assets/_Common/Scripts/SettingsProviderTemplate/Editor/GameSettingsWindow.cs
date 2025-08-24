@@ -11,7 +11,7 @@ public class GameSettingsWindow : EditorWindow
     [SerializeField] private int selectedIndex = -1;
     private VisualElement rightView;
 
-    [MenuItem("WorldGame/GameSettingsWindow")]
+    [MenuItem("PenAndPixel/GameSettingsWindow")]
     public static void ShowMyEditor()
     {
         // This method is called when the user selects the menu item in the Editor.

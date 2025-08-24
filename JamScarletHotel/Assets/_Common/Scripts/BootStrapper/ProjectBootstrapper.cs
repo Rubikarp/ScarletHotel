@@ -24,7 +24,7 @@ public static class ProjectBootstrapper
     */
 
 #if UNITY_EDITOR
-    [MenuItem("WorldGame/ShowBootstrap")]
+    [MenuItem("PenAndPixel/ShowBootstrap")]
     public static void OpenBootStrapProperties() => OpenPropertiesWindowOf(Resources.Load(prefabName));
     public static void OpenPropertiesWindowOf(Object pObject) => EditorUtility.OpenPropertyEditor(pObject);
 #endif
