@@ -23,6 +23,7 @@ public class TimeManager : Singleton<TimeManager>
 
     public string SeaonNumber => (SeasonIndex + 1).ToString();
     public float DeltaSimulTime => IsPaused ? 0 : Time.deltaTime * GameTimeSpeed;
+    public float SeasonProgress => GameTime / SeasonDuration;
     public bool IsFreeze => GameTimeSpeed <= 0;
 
     protected override void Awake()

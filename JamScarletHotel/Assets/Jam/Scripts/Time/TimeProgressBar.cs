@@ -13,12 +13,11 @@ public class TimeProgressBar : MonoBehaviour
 
     void FixedUpdate()
     {
-        SetCurrentFill((timeManager.GameTime / timeManager.SeasonDuration));
+        SetCurrentFill(timeManager.SeasonProgress);
     }
 
     void SetCurrentFill(float currentProgress)
     {
-        Debug.Log(currentProgress);
         mask.fillAmount = currentProgress;
     }
 }

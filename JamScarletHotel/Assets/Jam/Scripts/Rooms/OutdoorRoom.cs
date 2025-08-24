@@ -27,13 +27,13 @@ public class OutdoorRoom : BaseRoom
             Debug.LogWarning("PeopleSlot RequiredInfluences is not set to EInfluence.None in Outdoor room.", this);
         }
 
-        EjectButton.gameObject.SetActive(false);
-        FiredButton.gameObject.SetActive(false);
+        EjectButton?.gameObject.SetActive(false);
+        FiredButton?.gameObject.SetActive(false);
     }
     private void Update()
     {
-        EjectButton.gameObject.SetActive(CanEjectClient());
-        FiredButton.gameObject.SetActive(CanFiredEmployee());
+        EjectButton?.gameObject.SetActive(CanEjectClient());
+        FiredButton?.gameObject.SetActive(CanFiredEmployee());
     }
 
     public bool CanEjectClient()

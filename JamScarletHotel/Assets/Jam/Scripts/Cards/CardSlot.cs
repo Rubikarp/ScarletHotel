@@ -13,7 +13,7 @@ public class CardSlot : MonoBehaviour
     public bool IsOccupied => CurrentCard != null;
 
     [Header("Event")]
-    public UnityEvent<ICardData> CardData { get; private set; }
+    public UnityEvent<ICardData> OnCardDataChange { get; private set; }
 
     private void Awake()
     {
@@ -44,7 +44,15 @@ public class CardSlot : MonoBehaviour
 
         return true;
     }
+    public void SwapWith(CardSlot otherSlot)
+    {
+        if (otherSlot == null) return;
 
+        BaseGameCard tempCard = CurrentCard;
+        ReceivedCard(otherSlot.CurrentCard);
+        otherSlot.ReceivedCard(tempCard);
+    }
+    
     public void ReceivedCard(BaseGameCard card)
     {
         if (!CanSlotCard(card))
@@ -57,18 +65,20 @@ public class CardSlot : MonoBehaviour
         card.transform.SetParent(this.transform, false);
         card.transform.localPosition = Vector3.zero;
     }
-
     public void ReleaseCard()
     {
         CurrentCard = null;
     }
 
-    public void SwapWith(CardSlot otherSlot)
+    public void SetRequirement(ECardType requiredType = ECardType.Any, EInfluence requiredInfluence = 0)
     {
-        if (otherSlot == null) return;
+        AcceptedType = requiredType;
+        RequiredInfluences = requiredInfluence;
 
-        BaseGameCard tempCard = CurrentCard;
-        ReceivedCard(otherSlot.CurrentCard);
-        otherSlot.ReceivedCard(tempCard);
+        if(CurrentCard == null) return ;
+        if (!CanSlotCard(CurrentCard))
+        {
+            ReleaseCard();
+        }
     }
 }

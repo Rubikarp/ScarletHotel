@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dialogue
 {
     [RequireInterface(typeof(IPeopleCardData)), SerializeField] 
-    private ScriptableObject Character;
+    private BaseCardData Character;
     [Multiline(3)] public string dialogueText = "Lorem Ipsum ...";
 
     public string LocutorName

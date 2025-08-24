@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d73ca59802c35842b2a21f345322cc2, type: 3}
-  m_Name: ClientCard_Emma_Gauthier
+  m_Name: "CC_Ana\xEBlle_Dubois"
   m_EditorClassIdentifier: Assembly-CSharp::ClientCardData
-  title: Emma Gauthier
+  title: "Ana\xEBlle Dubois"
   artwork: {fileID: 0}
-  description: "Une jeune fille de bonne famille venue seule \xE0 l\u2019h\xF4tel.
-    Peut-\xEAtre fugue-t-elle la maison ou attend quelqu\u2019un pour un rendez-vous
-    secret."
-  influence: 0
-  race: 0
-  state: 0
-  apparence: 0
-  <IsEmployable>k__BackingField: 0
-  employeeCard: {fileID: 0}
+  description: "Une professionnelle qui arpente les rues adjacentes \xE0 l\u2019h\xF4tel.
+    Un vrai talent pour attirer un certain type de client\xE8le. "
+  influence: 2
+  defaultRace: 0
+  defaultState: 0
+  defaultApparence: 0
+  <DefaultSatisfaction>k__BackingField: 5
+  IsEmployable: 0
+  <employeeCard>k__BackingField: {fileID: 0}

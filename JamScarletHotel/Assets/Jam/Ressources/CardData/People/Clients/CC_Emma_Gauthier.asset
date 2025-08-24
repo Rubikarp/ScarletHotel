@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d73ca59802c35842b2a21f345322cc2, type: 3}
-  m_Name: ClientCard_Didier_Dupont
+  m_Name: CC_Emma_Gauthier
   m_EditorClassIdentifier: Assembly-CSharp::ClientCardData
-  title: Didier Dupont
-  artwork: {fileID: 21300000, guid: 6086a5a4e3730974b8eff57e475ca820, type: 3}
-  description: 
+  title: Emma Gauthier
+  artwork: {fileID: 0}
+  description: "Une jeune fille de bonne famille venue seule \xE0 l\u2019h\xF4tel.
+    Peut-\xEAtre fugue-t-elle la maison ou attend quelqu\u2019un pour un rendez-vous
+    secret."
   influence: 0
-  defaultRace: 0
-  defaultState: 0
-  defaultApparence: 0
-  <DefaultSatisfaction>k__BackingField: 5
-  IsEmployable: 0
-  <employeeCard>k__BackingField: {fileID: 0}
+  race: 0
+  state: 0
+  apparence: 0
+  <IsEmployable>k__BackingField: 0
+  employeeCard: {fileID: 0}

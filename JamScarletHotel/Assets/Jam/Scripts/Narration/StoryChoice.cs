@@ -16,7 +16,7 @@ public class StoryChoice
     [ShowIf("NeedSpecificCard")] public EInfluence InfluenceNeeded = 0;
 
     [Header("Conclusion")] 
-    public StoryBloc NextBloc;
-    [SerializeField, RequireInterface(typeof(ICardData))] private ScriptableObject[] lootCards;
+    public StoryBlocData NextBloc;
+    [SerializeField, RequireInterface(typeof(ICardData))] private BaseCardData[] lootCards;
     public ICardData[] LootCards => lootCards.OfType<ICardData>().ToArray();
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewEmployee", menuName = "Card/EmployeeCardData")]
+[CreateAssetMenu(fileName = "CE_New_Employee", menuName = "Card/EmployeeCardData")]
 public class EmployeeCardData : BaseCardData, ICardData, IPeopleCardData
 {
     //Fixed Properties for Employee Card Data
@@ -26,7 +26,7 @@ public class EmployeeCardData : BaseCardData, ICardData, IPeopleCardData
     [field: SerializeField]
     public int DefaultSalary { get; private set; }
 
-    protected override string GetScoName() => $"EmployeeCard_{Title.Replace(" ", "_").Replace("/", "_")}";
+    protected override string GetScoName() => $"CE_{Title.Replace(" ", "_").Replace("/", "_")}";
 }
 
 public enum EJob

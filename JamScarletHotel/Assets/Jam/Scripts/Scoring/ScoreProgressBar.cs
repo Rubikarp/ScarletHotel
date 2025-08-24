@@ -12,7 +12,6 @@ public class ScoreProgressBar : MonoBehaviour
 
     public void SetCurrentFill(float currentProgress)
     {
-        Debug.Log(currentProgress);
         mask.fillAmount = currentProgress;
     }
 }

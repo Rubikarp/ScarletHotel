@@ -9,7 +9,7 @@ public enum  EObjectState
     Broken,
 }
 
-[CreateAssetMenu(fileName = "NewObject", menuName = "Card/ObjectCardData")]
+[CreateAssetMenu(fileName = "OC_New_Object", menuName = "Card/ObjectCardData")]
 public class ObjectCardData : BaseCardData, ICardData
 {
     public ECardType CardType => ECardType.Object;
@@ -19,5 +19,5 @@ public class ObjectCardData : BaseCardData, ICardData
     private EObjectState defaultState;
     public EObjectState DefaultState => defaultState;
 
-    protected override string GetScoName() => $"ObjectCard_{Title.Replace(" ", "_").Replace("/", "_")}";
+    protected override string GetScoName() => $"OC_{Title.Replace(" ", "_").Replace("/", "_")}";
 }

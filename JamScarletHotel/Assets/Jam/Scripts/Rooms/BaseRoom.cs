@@ -1,9 +1,11 @@
 using NaughtyAttributes;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 public abstract class BaseRoom : MonoBehaviour
 {
+    private RoomScreenManager roomScreenManager;
+
     [Header("Info")]
     [field: SerializeField] public EInfluence RoomInfluence { get; protected set; } = 0;
     [field: SerializeField] public ERoomQuality RoomQuality { get; protected set; } = ERoomQuality.Shabby;
@@ -13,10 +15,12 @@ public abstract class BaseRoom : MonoBehaviour
     [field: SerializeField] public GameTimer RoomTimer { get; protected set; }
     [field: SerializeField] public GameObject RoomWindow { get; protected set; }
 
-    public void ToogleWindow()
+    protected virtual void Awake()
     {
-        if (RoomWindow != null) RoomWindow.SetActive(!RoomWindow.activeSelf);
+        roomScreenManager = RoomScreenManager.Instance;
     }
+
+    public void ToogleWindow() => roomScreenManager.OpenRoomScreen(this);
 }
 
 public enum ERoomType

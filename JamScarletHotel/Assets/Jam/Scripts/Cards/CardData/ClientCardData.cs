@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using VInspector;
 
-[CreateAssetMenu(fileName = "NewClient", menuName = "Card/ClientCardData")]
+[CreateAssetMenu(fileName = "CC_New_Client", menuName = "Card/ClientCardData")]
 public class ClientCardData : BaseCardData, ICardData, IPeopleCardData
 {
     //Fixed Properties for Employee Card Data
@@ -29,5 +29,5 @@ public class ClientCardData : BaseCardData, ICardData, IPeopleCardData
     [field: SerializeField, ShowIf("IsEmployable")]
     public EmployeeCardData employeeCard { get; private set; }
 
-    protected override string GetScoName() => $"ClientCard_{Title.Replace(" ", "_").Replace("/", "_")}";
+    protected override string GetScoName() => $"CC_{Title.Replace(" ", "_").Replace("/", "_")}";
 }

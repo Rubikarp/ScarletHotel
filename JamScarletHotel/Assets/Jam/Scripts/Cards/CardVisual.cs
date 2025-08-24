@@ -13,13 +13,13 @@ public class CardVisual : MonoBehaviour
 
     private RectTransform cardRect;
     [SerializeField, RequireInterface(typeof(ICardData))]
-    private ScriptableObject cardData;
+    private BaseCardData cardData;
     public ICardData CardData
     {
         get => (ICardData)cardData;
         set
         {
-            cardData = (ScriptableObject)value;
+            cardData = (BaseCardData)value;
             UpdateVisuals();
         }
     }
