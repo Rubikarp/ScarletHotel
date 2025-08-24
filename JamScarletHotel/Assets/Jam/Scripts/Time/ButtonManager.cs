@@ -36,11 +36,11 @@ public class ButtonManager : MonoBehaviour
             {
                 ChangeButtonVisualParam(pauseButton, baseColor, new Vector3(activeSize, activeSize, activeSize));
             }
-            else if (!timeManager.IsPaused && timeManager.GameTimeSpeed == 1)
+            else if ( timeManager.GameTimeSpeed == 1)
             {
                 ChangeButtonVisualParam(playButton, baseColor, new Vector3(activeSize, activeSize, activeSize));
             }
-            else if (timeManager.IsPaused && timeManager.GameTimeSpeed < 1)
+            else if ( timeManager.GameTimeSpeed >1)
             {
                 ChangeButtonVisualParam(fastButton, baseColor, new Vector3(activeSize, activeSize, activeSize));
             }
@@ -50,6 +50,7 @@ public class ButtonManager : MonoBehaviour
             ColorBlock colorBlock =  button.colors;
             colorBlock.normalColor = newColor;
             button.colors = colorBlock;
+            //print(newSize);
             button.transform.localScale = newSize;
         }
     }
