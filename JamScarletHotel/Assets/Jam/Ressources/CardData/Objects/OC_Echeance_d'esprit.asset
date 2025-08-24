@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a430efdad79bea4e8656eb6b706f94d, type: 3}
-  m_Name: ObjectCard_Echeance_d'ame
+  m_Name: OC_Echeance_d'esprit
   m_EditorClassIdentifier: Assembly-CSharp::ObjectCardData
-  title: Echeance d'ame
+  title: Echeance d'esprit
   artwork: {fileID: 0}
   description: "Description : Votre avis d\u2019\xE9ch\xE9ance de loyer. Celui-ci
-    lit \u201Cle contrat pour une \xE2me.\u201D "
+    lit \u201Cun fragment d\u2019esprit.\u201D "
   influence: 128
   defaultState: 0
   defaultType: 8

@@ -2,14 +2,22 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-public class CardSlot : MonoBehaviour
+public interface ICardSlot
+{
+    public bool CanSlotCard(BaseGameCard card);
+    public void ReceivedCard(BaseGameCard card);
+    public void ReleaseCard(BaseGameCard card);
+
+}
+
+public class CardSlot : MonoBehaviour, ICardSlot
 {
     private RectTransform rectTransform;
 
     [Header("Info")]
     [field: SerializeField, ReadOnly] public BaseGameCard CurrentCard { get; private set; } = null;
     [field: SerializeField] public ECardType AcceptedType { get; private set; } = ECardType.Any;
-    [field: SerializeField] public EInfluence RequiredInfluences { get; private set; } = 0;
+    [field: SerializeField] public EInfluence RequiredInfluences { get; private set; } = EInfluence.None;
     public bool IsOccupied => CurrentCard != null;
 
     [Header("Event")]
@@ -30,7 +38,7 @@ public class CardSlot : MonoBehaviour
         }
         if (card.CardData == null)
         {
-            Debug.LogError("Card data is null.");
+            Debug.LogError("CardManipulation data is null.");
             return false;
         }
 
@@ -62,15 +70,30 @@ public class CardSlot : MonoBehaviour
         }
 
         CurrentCard = card;
+        CurrentCard.CurrentSlot = this;
+
         card.transform.SetParent(this.transform, false);
         card.transform.localPosition = Vector3.zero;
     }
-    public void ReleaseCard()
+    public void ReleaseCard() => ReleaseCard(CurrentCard);
+    public void ReleaseCard(BaseGameCard card)
     {
+        if (card == null)
+        {
+            Debug.LogError($"Try release null CardManipulation", this);
+            return;
+        }
+        if (CurrentCard != card)
+        {
+            Debug.LogError($"This Slot doesn't contain {card.name}",this);
+            return;
+        }
+
+        CurrentCard.CurrentSlot = null;
         CurrentCard = null;
     }
 
-    public void SetRequirement(ECardType requiredType = ECardType.Any, EInfluence requiredInfluence = 0)
+    public void SetRequirement(ECardType requiredType = ECardType.Any, EInfluence requiredInfluence = EInfluence.None)
     {
         AcceptedType = requiredType;
         RequiredInfluences = requiredInfluence;

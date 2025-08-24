@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a430efdad79bea4e8656eb6b706f94d, type: 3}
-  m_Name: ObjectCard_Parchemins_Anciens
+  m_Name: OC_Echeance_de_chair
   m_EditorClassIdentifier: Assembly-CSharp::ObjectCardData
-  title: Parchemins Anciens
+  title: Echeance de chair
   artwork: {fileID: 0}
-  description: "Une pile de vieux papiers couverts de symbole \xE9sot\xE9riques,
-    titr\xE9s \u201CRituale ad ligandos et liberandos spiritus\u201D"
-  influence: 8
+  description: "Description : Votre avis d\u2019\xE9ch\xE9ance de loyer. Celui-ci
+    lit \u201Cune livre de chair.\u201D "
+  influence: 128
   defaultState: 0
-  defaultType: 16
+  defaultType: 8

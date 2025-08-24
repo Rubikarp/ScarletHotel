@@ -1,3 +1,4 @@
+using AYellowpaper;
 using UnityEditor;
 using UnityEngine;
  
@@ -5,19 +6,53 @@ using VInspector;
 
 public class CardHandler : Singleton<CardHandler>
 {
-    public Card cardPrefab;
+    [Header("Prefabs")]
+    [SerializeField] private ObjectGameCard objectCardPrefab;
+    [SerializeField] private ClientGameCard clientCardPrefab;
+    [SerializeField] private EmployeeGameCard employeeCardPrefab;
+
+    [field: Header("Component")]
+    [field: SerializeField] public Transform CardHandlingContainer { get; private set; }
+    [field: SerializeField] public SlotHolder Inventory { get; private set; }
+
+    [Header("Debug")]
+    [SerializeField, RequireInterface(typeof(ICardData))] 
+    private BaseCardData debugCard;
+    public ICardData DebugCard => (ICardData)debugCard;
 
     [Button]
-    public void AddCard()
+    public void DEBUG_InstatiateCard() => SpawnCard(DebugCard);
+
+    public void SpawnCard(ICardData cardData, CardSlot slot = null)
     {
-        if (Application.isPlaying)
+        BaseGameCard card = null;
+        switch (cardData.CardType)
         {
-            var card = Instantiate(cardPrefab, transform);
+            case ECardType.Object:
+                card = Instantiate(objectCardPrefab, CardHandlingContainer);
+                break;
+            case ECardType.Client:
+                card = Instantiate(clientCardPrefab, CardHandlingContainer);
+                break;
+            case ECardType.Employee:
+                card = Instantiate(employeeCardPrefab, CardHandlingContainer);
+                break;
+            default:
+            case ECardType.Any:
+            case ECardType.People:
+                Debug.LogError($"Can't spawn Any or People specific card",this);
+                return;
+        }
+
+        card.TryLoadData(cardData);
+
+        if(slot != null)
+        {
+            slot.ReceivedCard(card);
         }
         else
         {
-            var card = PrefabUtility.InstantiatePrefab(cardPrefab);
+            Inventory.ReceivedCard(card);
         }
     }
-
 }

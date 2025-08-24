@@ -24,6 +24,7 @@ public enum ECardType
 [Flags]
 public enum EInfluence
 {
+    None = 0,
     Brutality = 1 << 0, // 1 
     Seduction = 1 << 1, // 2 
     Richness = 1 << 2, // 4  

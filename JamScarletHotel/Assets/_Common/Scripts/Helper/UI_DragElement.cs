@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace WG.Common
 {
-    public class DragParentUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class UI_DragElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         private Canvas canvas;
-        private RectTransform parentRect;
+        private RectTransform rect;
 
         private void Start()
         {
             canvas = GetComponentInParent<Canvas>();
-            parentRect = transform.parent.GetComponent<RectTransform>();
+            rect = transform.GetComponent<RectTransform>();
         }
 
         public void OnBeginDrag(PointerEventData eventData) { }
@@ -19,7 +20,9 @@ namespace WG.Common
 
         public void OnDrag(PointerEventData eventData)
         {
-            parentRect.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            if (!Mouse.current.leftButton.isPressed) return;
+
+            rect.anchoredPosition += eventData.delta / canvas.scaleFactor;
         }
     }
 }

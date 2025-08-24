@@ -32,5 +32,7 @@ public class RoomScreenManager : Singleton<RoomScreenManager>
         screen.gameObject.name = roomRef.name + "_UiScreen";
         screen.LoadRoom(roomRef);
         roomToRoomScrens[roomRef] = screen;
+
+        screen.transform.position = roomRef.transform.position;
     }
 }

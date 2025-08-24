@@ -13,7 +13,7 @@ public class StoryChoice
     [Header("Conditions")]
     public bool NeedSpecificCard = false;
     [ShowIf("NeedSpecificCard")] public ECardType CardTypeNeeded = ECardType.Any;
-    [ShowIf("NeedSpecificCard")] public EInfluence InfluenceNeeded = 0;
+    [ShowIf("NeedSpecificCard")] public EInfluence InfluenceNeeded = EInfluence.None;
 
     [Header("Conclusion")] 
     public StoryBlocData NextBloc;

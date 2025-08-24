@@ -18,13 +18,9 @@ public class OutdoorRoom : BaseRoom
         {
             Debug.LogError("PeopleSlot is not assigned in Outdoor room.", this);
         }
-        if (PeopleSlot.AcceptedType != ECardType.People)
+        if (PeopleSlot.AcceptedType != ECardType.People || PeopleSlot.RequiredInfluences != 0)
         {
-            Debug.LogWarning("PeopleSlot AcceptedType is not set to ECardType.People in Outdoor room.", this);
-        }
-        if (PeopleSlot.RequiredInfluences != 0)
-        {
-            Debug.LogWarning("PeopleSlot RequiredInfluences is not set to EInfluence.None in Outdoor room.", this);
+            PeopleSlot.SetRequirement(ECardType.People, EInfluence.None);
         }
 
         EjectButton?.gameObject.SetActive(false);

@@ -7,7 +7,7 @@ public abstract class BaseRoom : MonoBehaviour
     private RoomScreenManager roomScreenManager;
 
     [Header("Info")]
-    [field: SerializeField] public EInfluence RoomInfluence { get; protected set; } = 0;
+    [field: SerializeField] public EInfluence RoomInfluence { get; protected set; } = EInfluence.None;
     [field: SerializeField] public ERoomQuality RoomQuality { get; protected set; } = ERoomQuality.Shabby;
     [field: SerializeField] public ERoomState RoomState { get; protected set; } = ERoomState.Clean;
     public abstract ERoomType RoomType();

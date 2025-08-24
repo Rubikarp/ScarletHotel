@@ -18,7 +18,7 @@ public class ObjectGameCard : BaseGameCard
     {
         if (currentData == null)
         {
-            Debug.LogWarning("Card data is not set on " + gameObject.name, this);
+            Debug.LogWarning("CardManipulation data is not set on " + gameObject.name, this);
             return false;
         }
 

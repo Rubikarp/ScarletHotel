@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 533912711003532425}
   - component: {fileID: 5036752453647742052}
   - component: {fileID: 3291378399089380878}
-  - component: {fileID: 6530229933268035328}
+  - component: {fileID: 6387265219068101102}
   - component: {fileID: 5402057149803858921}
   - component: {fileID: 6517229824186932918}
   m_Layer: 5
@@ -134,7 +134,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 533912711003532425}
---- !u!114 &6530229933268035328
+--- !u!114 &6387265219068101102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,14 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2858508575480025904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d103f73c46c407db068681e2811968, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c58cd8a826e6a34b96fb28bc67d5153, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  <GameCard>k__BackingField: {fileID: 5402057149803858921}
-  currentSlot: {fileID: 0}
-  dragOffset: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::CardManipulation
   <isHovering>k__BackingField: 0
   <isDragging>k__BackingField: 0
+  dragOffset: {x: 0, y: 0, z: 0}
   EnterHoverEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -181,8 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89006f3762611174a9b9fa60991287fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGameCard
-  currentData: {fileID: 11400000, guid: 04506b9dcf0ce7e4c84f814e3941b80b, type: 2}
   Timer: {fileID: 6517229824186932918}
+  Visual: {fileID: 4459331640333832559}
+  currentSlot: {fileID: 0}
+  currentData: {fileID: 11400000, guid: 04506b9dcf0ce7e4c84f814e3941b80b, type: 2}
   CurrentState: 0
 --- !u!114 &6517229824186932918
 MonoBehaviour:
@@ -220,27 +220,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +311,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+--- !u!114 &4459331640333832559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8248073922778265125, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+  m_PrefabInstance: {fileID: 5734684349746276170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66389fc080473a34b8e3e7a8bab817dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardVisual
 --- !u!224 &5005839961403014556 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}

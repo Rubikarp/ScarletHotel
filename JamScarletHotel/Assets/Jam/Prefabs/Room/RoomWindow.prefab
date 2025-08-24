@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 6303331869800209262}
   - component: {fileID: 4363111892213151645}
   - component: {fileID: 4857610134945148131}
+  - component: {fileID: 8020009330002403755}
   m_Layer: 5
   m_Name: RoomWindow
   m_TagString: Untagged
@@ -260,6 +261,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025fd4441ba026b429a9d42944e6d860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseRoomScreenUI
+  <BaseRoom>k__BackingField: {fileID: 0}
+  <Title>k__BackingField: {fileID: 0}
+  <Description>k__BackingField: {fileID: 0}
+--- !u!114 &8020009330002403755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2472767334333580441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b80fe7125d075488efdd34936709e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Common::WG.Common.DragParentUI
 --- !u!1 &2486240696204675500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1090,6 @@ GameObject:
   - component: {fileID: 6572178326931206582}
   - component: {fileID: 2249194826709836478}
   - component: {fileID: 5180259513679605535}
-  - component: {fileID: 3996738195362337630}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -1140,18 +1155,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3996738195362337630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8691627245403061554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54b80fe7125d075488efdd34936709e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Common::WG.Common.DragParentUI
 --- !u!1001 &1648332512714617727
 PrefabInstance:
   m_ObjectHideFlags: 0
