@@ -2,10 +2,10 @@
 using VInspector;
 
 [CreateAssetMenu(fileName = "NewClient", menuName = "Card/ClientCardData")]
-public class ClientCardData : CardDataBase, ICardData, IPeopleCardData
+public class ClientCardData : BaseCardData, ICardData, IPeopleCardData
 {
     //Fixed Properties for Employee Card Data
-    public string Name => Title;
+    public string CharacterName => Title;
     public ECardType CardType => ECardType.Client;
 
     [Header("People Info")]

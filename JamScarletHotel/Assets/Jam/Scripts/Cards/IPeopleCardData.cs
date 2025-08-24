@@ -1,6 +1,6 @@
 ﻿public interface IPeopleCardData
 {
-    string Name { get; }
+    string CharacterName { get; }
     EPeopleRace DefaultRace { get; }
     EPeopleState DefaultState { get; }
     EPeopleApparence DefaultApparence { get; }

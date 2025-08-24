@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-[RequireComponent(typeof(GameTimer))]
 public class GameTimerUI : MonoBehaviour
 {
     [Header("Component")]
@@ -10,16 +10,26 @@ public class GameTimerUI : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Image circularPie;
     [SerializeField] private Image lockImage;
+    [SerializeField] private TextMeshProUGUI TimeArea;
+
     private void Start()
     {
-        timer = GetComponent<GameTimer>();
+        if (timer == null) timer = GetComponent<GameTimer>();
     }
 
     private void Update()
     {
-        if (lockImage != null)
+        if (timer == null)
         {
-            lockImage.gameObject.SetActive(timer.IsActive);
+            Debug.LogWarning($"GameTimer is not set on {gameObject.name}", this);
+            return;
+        }
+
+        lockImage?.gameObject.SetActive(timer.IsActive);
+
+        if (TimeArea != null)
+        {
+            TimeArea.text = timer.RemainingTime.ToString("F0");
         }
         if (circularPie != null)
         {

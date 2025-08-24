@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewEmployee", menuName = "Card/EmployeeCardData")]
-public class EmployeeCardData : CardDataBase, ICardData, IPeopleCardData
+public class EmployeeCardData : BaseCardData, ICardData, IPeopleCardData
 {
     //Fixed Properties for Employee Card Data
-    public string Name => Title;
+    public string CharacterName => Title;
     public ECardType CardType => ECardType.Employee;
 
     [Header("People Info")]

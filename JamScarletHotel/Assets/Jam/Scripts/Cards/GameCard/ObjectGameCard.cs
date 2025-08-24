@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using NaughtyAttributes;
 
-public class ObjectGameCard : GameCard
+public class ObjectGameCard : BaseGameCard
 {
     public ObjectCardData Data => (ObjectCardData)currentData;
     [Header("Object Info")]

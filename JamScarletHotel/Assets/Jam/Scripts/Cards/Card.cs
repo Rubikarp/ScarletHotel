@@ -9,7 +9,7 @@ using NaughtyAttributes;
 using AYellowpaper;
 
 [RequireComponent(typeof(CanvasGroup))]
-[RequireComponent(typeof(GameCard))]
+[RequireComponent(typeof(BaseGameCard))]
 public class Card : MonoBehaviour,
     IPointerUpHandler, IPointerDownHandler,
     IPointerEnterHandler, IPointerExitHandler,
@@ -17,7 +17,7 @@ public class Card : MonoBehaviour,
 {
     private CanvasGroup canvasGroup;
     private CardHandler cardHandler;
-    [field: SerializeField] public GameCard GameCard { get; private set; }
+    [field: SerializeField] public BaseGameCard GameCard { get; private set; }
 
     [Header("Info")]
     public CardSlot currentSlot;
@@ -40,7 +40,7 @@ public class Card : MonoBehaviour,
         cardHandler = CardHandler.Instance;
         canvasGroup = GetComponent<CanvasGroup>();
 
-        GameCard = GetComponent<GameCard>();
+        GameCard = GetComponent<BaseGameCard>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

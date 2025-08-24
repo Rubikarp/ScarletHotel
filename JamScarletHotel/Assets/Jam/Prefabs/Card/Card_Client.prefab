@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3291378399089380878}
   - component: {fileID: 6530229933268035328}
   - component: {fileID: 3424985307956508685}
+  - component: {fileID: 3016846675590896602}
   m_Layer: 5
   m_Name: Card_Client
   m_TagString: Untagged
@@ -181,7 +182,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClientGameCard
   currentData: {fileID: 11400000, guid: 1a2f90e6bcb2d3e4191efd8e03d7c213, type: 2}
+  Timer: {fileID: 3016846675590896602}
   CurrentSatisfaction: 5
+--- !u!114 &3016846675590896602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2858508575480025904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105bff9e6fcfe624ab0e4e6541d10be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
+  <TimerDuration>k__BackingField: 10
+  <RemainingTime>k__BackingField: 10
+  <IsActive>k__BackingField: 0
+  OnTimerEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5734684349746276170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,13 +290,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6583128025633487457, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 3016846675590896602}
     - target: {fileID: 7699052634655529002, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_Name
       value: CardVisual
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937686391785925176, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
-      propertyPath: m_overflowMode
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

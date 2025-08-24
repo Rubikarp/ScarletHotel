@@ -1,7 +1,7 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
 
-public class EmployeeGameCard : GameCard
+public class EmployeeGameCard : BaseGameCard
 {
     public EmployeeCardData Data => (EmployeeCardData)currentData;
 

@@ -10,7 +10,7 @@ public enum  EObjectState
 }
 
 [CreateAssetMenu(fileName = "NewObject", menuName = "Card/ObjectCardData")]
-public class ObjectCardData : CardDataBase, ICardData
+public class ObjectCardData : BaseCardData, ICardData
 {
     public ECardType CardType => ECardType.Object;
 

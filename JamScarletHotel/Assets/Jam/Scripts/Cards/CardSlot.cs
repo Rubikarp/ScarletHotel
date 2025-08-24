@@ -7,7 +7,7 @@ public class CardSlot : MonoBehaviour
     private RectTransform rectTransform;
 
     [Header("Info")]
-    [field: SerializeField, ReadOnly] public GameCard CurrentCard { get; private set; } = null;
+    [field: SerializeField, ReadOnly] public BaseGameCard CurrentCard { get; private set; } = null;
     [field: SerializeField] public ECardType AcceptedType { get; private set; } = ECardType.Any;
     [field: SerializeField] public EInfluence RequiredInfluences { get; private set; } = 0;
     public bool IsOccupied => CurrentCard != null;
@@ -20,7 +20,7 @@ public class CardSlot : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public bool CanSlotCard(GameCard card)
+    public bool CanSlotCard(BaseGameCard card)
     {
         //Error checks
         if (card == null)
@@ -45,7 +45,7 @@ public class CardSlot : MonoBehaviour
         return true;
     }
 
-    public void ReceivedCard(GameCard card)
+    public void ReceivedCard(BaseGameCard card)
     {
         if (!CanSlotCard(card))
         {
@@ -67,7 +67,7 @@ public class CardSlot : MonoBehaviour
     {
         if (otherSlot == null) return;
 
-        GameCard tempCard = CurrentCard;
+        BaseGameCard tempCard = CurrentCard;
         ReceivedCard(otherSlot.CurrentCard);
         otherSlot.ReceivedCard(tempCard);
     }

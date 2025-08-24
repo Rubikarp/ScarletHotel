@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public abstract class GameCard : MonoBehaviour
+public abstract class BaseGameCard: MonoBehaviour
 {
     [SerializeField, RequireInterface(typeof(ICardData))]
     protected ScriptableObject currentData;
@@ -12,6 +12,7 @@ public abstract class GameCard : MonoBehaviour
     public ICardData CardData => (ICardData)currentData;
 
     public GameTimer Timer;
+    public CardVisual Visual;
 
     public void TryLoadData(ICardData newData)
     {
@@ -29,6 +30,11 @@ public abstract class GameCard : MonoBehaviour
     protected abstract bool IsValidCardData();
     protected abstract void LoadData();
     protected abstract void OnTimerEnd();
+    public void DestroyCard()
+    {
+        Destroy(Visual.gameObject);
+        Destroy(gameObject);
+    }
 
     protected void OnValidate()
     {

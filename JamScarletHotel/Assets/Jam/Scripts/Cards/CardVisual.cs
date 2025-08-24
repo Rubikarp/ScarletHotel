@@ -9,7 +9,7 @@ public class CardVisual : MonoBehaviour
 
     [Header("Card Info")]
     [SerializeField]
-    private GameCard card;
+    private BaseGameCard card;
 
     private RectTransform cardRect;
     [SerializeField, RequireInterface(typeof(ICardData))]
@@ -47,7 +47,7 @@ public class CardVisual : MonoBehaviour
     }
     private void Start()
     {
-        LinkToCard(GetComponentInParent<GameCard>());
+        LinkToCard(GetComponentInParent<BaseGameCard>());
     }
 
     private void Update()
@@ -93,13 +93,14 @@ public class CardVisual : MonoBehaviour
         if (card != null) LinkToCard(card);
     }
 
-    public void LinkToCard(GameCard nexCard)
+    public void LinkToCard(BaseGameCard nexCard)
     {
         card = nexCard;
         if (card != null)
         {
             cardRect = card.GetComponent<RectTransform>();
             CardData = card.CardData;
+            card.Visual = this;
         }
     }
 }

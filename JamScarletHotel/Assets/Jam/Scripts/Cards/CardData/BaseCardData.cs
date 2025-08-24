@@ -1,9 +1,11 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-public abstract class CardDataBase : ScriptableObject
+
+public abstract class BaseCardData : ScriptableObject
 {
     [Header("Base Info")]
     [SerializeField] private string title = string.Empty;
