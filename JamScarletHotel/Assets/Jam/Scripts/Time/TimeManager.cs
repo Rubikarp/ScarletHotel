@@ -9,11 +9,16 @@ public class TimeManager : Singleton<TimeManager>
     [Header("Settings")]
     [SerializeField, Expandable]
     private GameTimeSettings gameTimeSettings;
+
+    public float DayDuration => gameTimeSettings.DayDuration;
     public float SeasonDuration => gameTimeSettings.SeasonDuration;
+    public float WeekDuration => gameTimeSettings.WeekDuration;
 
     [field: Header("Time Info")]
+    [field: SerializeField, ReadOnly] public int DayIndex { get; private set; } = 0;
+    [field: SerializeField, ReadOnly] public int WeekIndex { get; private set; } = 0;
     [field: SerializeField, ReadOnly] public int SeasonIndex { get; private set; } = 0;
-    [field: SerializeField, ReadOnly, ProgressBar("SeasonDuration")] public float GameTime { get; private set; } = 0;
+    [field: SerializeField, ReadOnly, ProgressBar("DayDuration")] public float GameTime { get; private set; } = 0;
 
     [field: Header("Time Speed")]
     [field: SerializeField, Min(0)] public float GameTimeSpeed { get; private set; } = 1f;
@@ -21,7 +26,9 @@ public class TimeManager : Singleton<TimeManager>
 
     public TimeTickEvent OnTimeTick;
 
-    public string SeaonNumber => (SeasonIndex + 1).ToString();
+    public string DayNumber => (DayIndex+1).ToString();
+    public string WeekNumber => (WeekIndex + 1).ToString();
+    public string SeasonNumber => (SeasonIndex + 1).ToString();
     public float DeltaSimulTime => IsPaused ? 0 : Time.deltaTime * GameTimeSpeed;
     public bool IsFreeze => GameTimeSpeed <= 0;
 
@@ -35,22 +42,37 @@ public class TimeManager : Singleton<TimeManager>
         gameTimeSettings = GameTimeSettings.Instance;
 
         GameTime = 0;
+        DayIndex = 0;
+        WeekIndex = 0;
         SeasonIndex = 0;
     }
 
     void FixedUpdate()
     {
+        //print(IsPaused);
         if (IsPaused) return;
 
         float delta = DeltaSimulTime;
         GameTime += delta;
         OnTimeTick?.Invoke(delta);
-        if (GameTime > (SeasonDuration * SeasonIndex))
+        if (GameTime > DayDuration )
+        {
+            DayIndex++;
+            GameTime %= DayDuration;
+
+            Debug.Log($"day n°{DayNumber} start");
+        }
+        if(GameTime+(DayIndex *DayDuration) > DayDuration * WeekDuration*(WeekIndex+1))
+        {
+            WeekIndex++;
+            Debug.Log($"week n°{WeekNumber} start");
+            //call here event for weekly payment
+        }
+        if (GameTime+(DayIndex*DayDuration) >= DayDuration * SeasonDuration*(SeasonIndex+1))
         {
             SeasonIndex++;
-            GameTime %= SeasonDuration;
-
-            Debug.Log($"Season n°{SeaonNumber} start");
+            Debug.Log($"Season n°{SeasonNumber} start");
+            //call here event for demonic payment
         }
     }
 

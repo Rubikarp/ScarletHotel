@@ -6,6 +6,15 @@ public class TimeProgressBar : MonoBehaviour
     [SerializeField] private Image mask;
     private TimeManager timeManager;
 
+    enum ETimeType
+    {
+        day,
+        week,
+        season
+    }
+    [SerializeField] 
+    ETimeType timeType;
+
     void Start()
     {
         timeManager = TimeManager.Instance;
@@ -13,12 +22,23 @@ public class TimeProgressBar : MonoBehaviour
 
     void FixedUpdate()
     {
-        SetCurrentFill((timeManager.GameTime / timeManager.SeasonDuration));
+        if (timeType == ETimeType.day)
+        {
+            SetCurrentFill((((timeManager.DayIndex) * timeManager.DayDuration +timeManager.GameTime) / timeManager.DayDuration));
+        }
+        if (timeType == ETimeType.week)
+        {
+            SetCurrentFill((((timeManager.DayIndex) * timeManager.DayDuration + timeManager.GameTime) / (timeManager.WeekDuration * timeManager.DayDuration)));
+        }
+        if (timeType == ETimeType.season)
+        {
+            SetCurrentFill((((timeManager.DayIndex) * timeManager.DayDuration + timeManager.GameTime) / (timeManager.SeasonDuration * timeManager.DayDuration)));
+        }
     }
 
     void SetCurrentFill(float currentProgress)
     {
-        Debug.Log(currentProgress);
+        //print(currentProgress);
         mask.fillAmount = currentProgress;
     }
 }
