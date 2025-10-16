@@ -1,57 +1,41 @@
-﻿using NaughtyAttributes;
-using UnityEngine;
+﻿using UnityEngine;
+using Sirenix.OdinInspector;
 
 public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
-    [field: SerializeField, Foldout("Singleton")] public bool dontDestroyOnLoad = false;
-    [SerializeField, Foldout("Singleton")] private bool forceThisInstanceOnAwake = false;
+    protected static T instance;
+    public static bool HasInstance => instance != null;
+    public static T TryGetInstance() => HasInstance ? instance : null;
 
-    /// <summary>
-    /// The instance.
-    /// </summary>
-    private static T instance;
-
-    /// <summary>
-    /// Gets the instance of the Singleton.
-    /// </summary>
-    /// <value>The instance.</value>
     public static T Instance
     {
         get
         {
-            if (instance == null) instance = FindFirstObjectByType<T>();
+            if (instance == null)
+            {
+                instance = FindAnyObjectByType<T>();
+                if (instance == null)
+                {
+                    var go = new GameObject($"{typeof(T).Name}_Auto-Generated");
+                    instance = go.AddComponent<T>();
+                }
+            }
+
             return instance;
         }
     }
 
+    /// <summary>
+    /// Make sure to call base.Awake() in override if you need awake.
+    /// </summary>
     protected virtual void Awake()
     {
-        if (instance == null)
-            instance = this as T;
-        else if (instance != this)
-        {
-            if (forceThisInstanceOnAwake)
-            {
-                Destroy(instance.gameObject);
-                instance = this as T;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-        }
-
-        if (dontDestroyOnLoad)
-        {
-            transform.parent = null;
-            DontDestroyOnLoad(gameObject);
-        }
+        InitializeSingleton();
     }
 
-    protected virtual void OnDestroy()
+    protected virtual void InitializeSingleton()
     {
-        if (instance == this)
-            instance = null;
+        if (!Application.isPlaying) return;
+        instance = this as T;
     }
 }

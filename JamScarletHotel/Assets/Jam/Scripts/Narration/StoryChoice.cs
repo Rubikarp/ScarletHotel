@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using AYellowpaper;
 using UnityEngine;
 
@@ -12,11 +12,14 @@ public class StoryChoice
 
     [Header("Conditions")]
     public bool NeedSpecificCard = false;
-    [ShowIf("NeedSpecificCard")] public ECardType CardTypeNeeded = ECardType.Any;
-    [ShowIf("NeedSpecificCard")] public EInfluence InfluenceNeeded = EInfluence.None;
+    [ShowIf("NeedSpecificCard")]
+    public ECardType CardTypeNeeded = ECardType.Any;
+    [ShowIf("NeedSpecificCard")]
+    public EInfluence InfluenceNeeded = EInfluence.None;
 
     [Header("Conclusion")] 
     public StoryBlocData NextBloc;
-    [SerializeField, RequireInterface(typeof(ICardData))] private BaseCardData[] lootCards;
+    [SerializeField, Required]
+    private BaseCardData[] lootCards;
     public ICardData[] LootCards => lootCards.OfType<ICardData>().ToArray();
 }

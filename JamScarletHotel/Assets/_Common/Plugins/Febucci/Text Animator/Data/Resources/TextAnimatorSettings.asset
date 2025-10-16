@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: TextAnimatorSettings
   m_EditorClassIdentifier: Febucci.TextAnimator.Runtime::Febucci.UI.TextAnimatorSettings
   behaviors:
-    defaultDatabase: {fileID: 11400000, guid: a0b045fda3cdccf4282efc0212203ec9, type: 2}
+    defaultDatabase: {fileID: 11400000, guid: 25405bf39eb73a0418bb01608b43c32b, type: 2}
     enabled: 1
     openingSymbol: 60
     closingSymbol: 62
   appearances:
-    defaultDatabase: {fileID: 11400000, guid: c37d34ddf4000404bbcb7dd737a8c67e, type: 2}
+    defaultDatabase: {fileID: 11400000, guid: 4df29486bc7c361409c19001e6723c22, type: 2}
     enabled: 1
     openingSymbol: 123
     closingSymbol: 125
   actions:
-    defaultDatabase: {fileID: 11400000, guid: d9ee371941762954ea70bbe4afaf33bd, type: 2}
+    defaultDatabase: {fileID: 11400000, guid: c549567ab401acc499a3da30a9ad3be8, type: 2}
     enabled: 1
     openingSymbol: 60
     closingSymbol: 62
   disappearancesMiddleSymbol: 35
-  defaultStyleSheet: {fileID: 11400000, guid: 5da3ac269f40a0340b7d7e1fd025a569, type: 2}
+  defaultStyleSheet: {fileID: 11400000, guid: 3f5f93fb231c7e642b3409a457ed8775, type: 2}
   controlTags:
     disableTypewriter: notype

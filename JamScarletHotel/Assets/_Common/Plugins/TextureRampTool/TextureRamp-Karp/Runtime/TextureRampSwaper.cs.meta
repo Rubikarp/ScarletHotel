@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: df9fcd997074b7549ada5afd1210a094
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202029
+  packageName: TextureRamp Karp
+  packageVersion: 1.1.0
+  assetPath: Assets/3_TOOL/TextureRampTool/TextureRamp-Karp/Runtime/TextureRampSwaper.cs
+  uploadId: 498791

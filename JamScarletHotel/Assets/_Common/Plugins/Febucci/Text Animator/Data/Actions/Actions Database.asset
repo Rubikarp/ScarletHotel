@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Actions Database
   m_EditorClassIdentifier: Febucci.TextAnimator.Runtime::Febucci.UI.Actions.ActionDatabase
   data:
-  - {fileID: 11400000, guid: a848bcfea96d648448514373d274ee6a, type: 2}
-  - {fileID: 11400000, guid: 0c11fa1b24e5a624588f904fdc7d458e, type: 2}
-  - {fileID: 11400000, guid: a42e94c374ace74458facd209e337e2e, type: 2}
+  - {fileID: 11400000, guid: a047afcd5e36b6144a370ee3120bb83d, type: 2}
+  - {fileID: 11400000, guid: 804a04843ec2f5844a5d34e12a7aadcd, type: 2}
+  - {fileID: 11400000, guid: 254b223b5789855458d44354b9ebc961, type: 2}

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 46150507ec486b14ea47348efb6146eb
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202029
+  packageName: TextureRamp Karp
+  packageVersion: 1.1.0
+  assetPath: Assets/3_TOOL/TextureRampTool/TextureRamp-Karp/Demo/HeightMap.shadergraph
+  uploadId: 498791

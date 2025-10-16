@@ -1,10 +1,10 @@
-using NaughtyAttributes;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class BasicSceneManagement : MonoBehaviour
 {
-	[SerializeField, Scene] private int scene;
+	[SerializeField, SceneObjectsOnly] private int scene;
 
 	[Button]
 	public void LoadScene()

@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -9,8 +9,8 @@ public abstract class BaseCardData : ScriptableObject
 {
     [Header("Base Info")]
     [SerializeField] private string title = string.Empty;
-    [SerializeField, ShowAssetPreview(256,256)] private Sprite artwork;
-    [SerializeField, Multiline(3)] private string description;
+    [SerializeField] private Sprite artwork;
+    [SerializeField, TextArea(1,3)] private string description;
     [SerializeField] private EInfluence influence;
 
     public Sprite Artwork => artwork;

@@ -1,5 +1,5 @@
 using UnityEngine;
-using VInspector;
+using System.Collections.Generic;
 
 public class RoomScreenManager : Singleton<RoomScreenManager>
 {
@@ -8,7 +8,7 @@ public class RoomScreenManager : Singleton<RoomScreenManager>
     [field: SerializeField] public Transform RoomContainer { get; private set; }   
 
     [Header("Data")]
-    public SerializedDictionary<BaseRoom, BaseRoomScreenUI> roomToRoomScrens;
+    public Dictionary<BaseRoom, BaseRoomScreenUI> roomToRoomScrens;
 
     public void OpenRoomScreen(BaseRoom roomRef)
     {

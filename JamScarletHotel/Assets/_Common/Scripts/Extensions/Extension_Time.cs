@@ -39,4 +39,17 @@ public static class Extension_Time
 		}
 		return result;
 	}
+
+    public static DateTime WithDate(this DateTime dt, int? year = null, int? month = null, int? day = null)
+    {
+        int newYear = year ?? dt.Year;
+        int newMonth = month ?? dt.Month;
+        int newDay = day ?? dt.Day;
+
+        // Ensure the new date is valid by clamping day if necessary
+        int daysInMonth = DateTime.DaysInMonth(newYear, newMonth);
+        newDay = Math.Min(newDay, daysInMonth);
+
+        return new DateTime(newYear, newMonth, newDay, dt.Hour, dt.Minute, dt.Second, dt.Millisecond);
+    }
 }

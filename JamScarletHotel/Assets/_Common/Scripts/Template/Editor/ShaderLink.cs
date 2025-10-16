@@ -1,5 +1,6 @@
 using UnityEngine;
-using NaughtyAttributes;
+
+
 public class ShaderLink : MonoBehaviour
 {
     protected Renderer render = null;

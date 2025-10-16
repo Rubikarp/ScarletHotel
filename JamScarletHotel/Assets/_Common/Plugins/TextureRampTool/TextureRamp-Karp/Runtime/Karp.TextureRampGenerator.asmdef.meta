@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d887b75700f909449a6f288e35470911
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202029
+  packageName: TextureRamp Karp
+  packageVersion: 1.1.0
+  assetPath: Assets/3_TOOL/TextureRampTool/TextureRamp-Karp/Runtime/Karp.TextureRampGenerator.asmdef
+  uploadId: 498791

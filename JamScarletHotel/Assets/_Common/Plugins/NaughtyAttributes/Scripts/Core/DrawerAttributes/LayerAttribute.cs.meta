@@ -1,18 +1,2 @@
 fileFormatVersion: 2
-guid: 668d19ebe071176448d1af816a9a0ce0
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 129996
-  packageName: NaughtyAttributes
-  packageVersion: 2.1.4
-  assetPath: Assets/NaughtyAttributes/Scripts/Core/DrawerAttributes/LayerAttribute.cs
-  uploadId: 480834
+guid: 0b6993327627b334da4ca3937d3ab225

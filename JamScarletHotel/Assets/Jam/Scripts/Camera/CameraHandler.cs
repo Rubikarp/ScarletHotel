@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 
 public class CameraHandler : MonoBehaviour
 {

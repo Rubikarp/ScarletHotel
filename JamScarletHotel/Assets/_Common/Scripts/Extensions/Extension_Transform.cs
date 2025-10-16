@@ -1,31 +1,54 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class Extension_Transform
 {
-    public static Transform FindRecursive(this Transform self, string n)
+    public static void DeleteChildren(this Transform transform)
     {
-        List<Transform> lSearchList = new () { self };
-        List<Transform> lNextSearchList = new ();
-        Transform lReturnedValue = null;
-
-        while (lSearchList.Count > 0)
-        {
-            foreach (Transform lTransform in lSearchList)
+        int childCount = transform.childCount;
+        if (Application.isPlaying)
+            for (int i = childCount - 1; i >= 0; i--)
             {
-                lReturnedValue = lTransform.Find(n);
-
-                if (lReturnedValue != null)
-                    return lReturnedValue;
-                
-                for (int i = 0; i < lTransform.childCount; i++)
-                    lNextSearchList.Add(lTransform.GetChild(i));
+                Object.Destroy(transform.GetChild(i).gameObject);
             }
+        else
+            for (int i = childCount - 1; i >= 0; i--)
+            {
+                Object.DestroyImmediate(transform.GetChild(i).gameObject);
+            }
+    }
 
-            lSearchList = new(lNextSearchList);
-            lNextSearchList.Clear();
+    public static void SetTop(this RectTransform rt, float top) => rt.offsetMax = new Vector2(rt.offsetMax.x, -top);
+    public static void SetLeft(this RectTransform rt, float left) => rt.offsetMin = new Vector2(left, rt.offsetMin.y);
+    public static void SetRight(this RectTransform rt, float right) => rt.offsetMax = new Vector2(-right, rt.offsetMax.y);
+    public static void SetBottom(this RectTransform rt, float bottom) => rt.offsetMin = new Vector2(rt.offsetMin.x, bottom);
+
+    public static void AddOffsetHori(this RectTransform rt, float value)
+    {
+        rt.offsetMin = rt.offsetMax + Vector2.right * value;
+        rt.offsetMax = rt.offsetMax + Vector2.right * value;
+    }
+    public static void AddOffsetVert(this RectTransform rt, float value)
+    {
+        rt.offsetMin = rt.offsetMax + Vector2.up * value;
+        rt.offsetMax = rt.offsetMax + Vector2.up * value;
+    }
+    public static RectTransform AsRect(this Transform transform)
+    {
+        if (transform == null) return null;
+        if (transform is RectTransform == false)
+        {
+            Debug.LogError($"Transform {transform.name} is not a RectTransform");
+            return null;
         }
+        return transform as RectTransform;
+    }
+}
 
-        return null;
+public static class Extension_RectTransform
+{
+    public static Vector3 GetWorldPosOfCanvasElement(this RectTransform element)
+    {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(element, element.position, Camera.main, out var result);
+        return result;
     }
 }

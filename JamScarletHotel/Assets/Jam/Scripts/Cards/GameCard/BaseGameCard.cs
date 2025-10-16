@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using AYellowpaper;
 using UnityEngine.InputSystem;
 

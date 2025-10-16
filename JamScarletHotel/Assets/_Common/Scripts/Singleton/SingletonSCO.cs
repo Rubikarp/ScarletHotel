@@ -9,21 +9,25 @@
 
 public abstract class SingletonSCO<T> : ScriptableObject where T : ScriptableObject
 {
-	static T instance = null;
-	public static T Instance
-	{
-		get
-		{
-            if (!instance)
-            {
-                instance = Resources.Load<T>(typeof(T).Name);
+    protected static T instance;
+    public static bool HasInstance => instance != null;
+    public static T TryGetInstance() => Resources.Load<T>(typeof(T).Name);
 
-                if (!instance)
+    public static T Instance
+    {
+        get
+        {
+            if (HasInstance)
+            {
+                instance = TryGetInstance();
+                if (HasInstance)
+                {
                     Debug.LogError($"SingletonSCO: {typeof(T).Name} not found in Resources. " +
                         $"Make sure it is properly placed in a Resources folder, and its name is the same as its script.");
+                }
             }
 
             return instance;
-		}
-	}
+        }
+    }
 }

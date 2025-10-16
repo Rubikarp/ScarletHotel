@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 37b1704bee5151542a293ffb24fb5291
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202029
+  packageName: TextureRamp Karp
+  packageVersion: 1.1.0
+  assetPath: Assets/3_TOOL/TextureRampTool/TextureRamp-Karp/Editor/TextureRampCreator.cs
+  uploadId: 498791

@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using DG.Tweening;
-using UnityEngine;
 using UnityEngine.UI;
-using NaughtyAttributes;
+using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class ScrollbarUtility : MonoBehaviour
 {

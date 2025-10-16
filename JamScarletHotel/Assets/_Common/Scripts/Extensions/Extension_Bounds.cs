@@ -15,7 +15,6 @@ public static class Extension_Bounds
 	public static bool IsOutVerticalBounds(this Bounds bounds, Vector3 pos) => Mathf.Abs((pos - bounds.center).y) > Mathf.Abs(bounds.extents.y);
 	public static bool IsOutHorizontalBounds(this Bounds bounds, Vector3 pos) => Mathf.Abs((pos - bounds.center).x) > Mathf.Abs(bounds.extents.x);
 
-
 	public static Vector3 RandomPointInBounds(this Bounds boundss)
 	{
 		return boundss.center + new Vector3(

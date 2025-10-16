@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using System.Linq;
 
 public class StoryManager : Singleton<StoryManager>

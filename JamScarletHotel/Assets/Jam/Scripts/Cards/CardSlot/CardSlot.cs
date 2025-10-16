@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes;
+﻿using Sirenix.OdinInspector;
 using UnityEngine.Events;
 using UnityEngine;
 
@@ -15,9 +15,12 @@ public class CardSlot : MonoBehaviour, ICardSlot
     private RectTransform rectTransform;
 
     [Header("Info")]
-    [field: SerializeField, ReadOnly] public BaseGameCard CurrentCard { get; private set; } = null;
-    [field: SerializeField] public ECardType AcceptedType { get; private set; } = ECardType.Any;
-    [field: SerializeField] public EInfluence RequiredInfluences { get; private set; } = EInfluence.None;
+    [field: SerializeField, ReadOnly]
+    public BaseGameCard CurrentCard { get; private set; } = null;
+    [field: SerializeField]
+    public ECardType AcceptedType { get; private set; } = ECardType.Any;
+    [field: SerializeField]
+    public EInfluence RequiredInfluences { get; private set; } = EInfluence.None;
     public bool IsOccupied => CurrentCard != null;
 
     [Header("Event")]

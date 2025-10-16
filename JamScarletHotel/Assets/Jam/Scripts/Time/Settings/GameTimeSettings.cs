@@ -1,4 +1,3 @@
-using SettingsTools;
 using UnityEngine;
 
 [GameSettings(typeof(GameTimeSettings))]

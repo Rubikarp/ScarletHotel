@@ -1,4 +1,4 @@
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +9,7 @@ public delegate void SeasonChangeEvent(int CurrentSeason);
 public class TimeManager : Singleton<TimeManager>
 {
     [Header("Settings")]
-    [SerializeField, Expandable]
+    [SerializeField]
     private GameTimeSettings gameTimeSettings;
 
     public int SeasonDuration => gameTimeSettings.SeasonDuration;
@@ -20,7 +20,7 @@ public class TimeManager : Singleton<TimeManager>
     [field: SerializeField, ReadOnly] public int SeasonIndex { get; private set; } = 0;
     [field: SerializeField, ReadOnly] public int WeekIndex { get; private set; } = 0;
     [field: SerializeField, ReadOnly] public int DayIndex { get; private set; } = 0;
-    [field: SerializeField, ReadOnly, ProgressBar("DayDuration")] public float GameTime { get; private set; } = 0;
+    [field: SerializeField, ReadOnly] public float GameTime { get; private set; } = 0;
 
     [field: Header("Time Speed")]
     [field: SerializeField, Min(0)] public float GameTimeSpeed { get; private set; } = 1f;

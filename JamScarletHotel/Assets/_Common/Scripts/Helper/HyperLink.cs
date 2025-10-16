@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 
 namespace SevenLies.core
 {
     public class HyperLink : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private string link = "https://youtu.be/dQw4w9WgXcQ";
+        public string url = "https://youtu.be/dQw4w9WgXcQ";
 
         [Button]
         public void OpenLink()
         {
-            Application.OpenURL(link);
+            Application.OpenURL(url);
         }
 
         public void OnPointerClick(PointerEventData eventData)

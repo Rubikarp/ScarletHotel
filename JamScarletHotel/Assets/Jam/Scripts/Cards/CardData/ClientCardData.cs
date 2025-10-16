@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using VInspector;
+using Sirenix.OdinInspector;
 
 [CreateAssetMenu(fileName = "CC_New_Client", menuName = "CardManipulation/ClientCardData")]
 public class ClientCardData : BaseCardData, ICardData, IPeopleCardData

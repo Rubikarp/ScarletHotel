@@ -1,8 +1,8 @@
+using Sirenix.OdinInspector;
 using AYellowpaper;
 using UnityEditor;
 using UnityEngine;
  
-using VInspector;
 
 public class CardHandler : Singleton<CardHandler>
 {

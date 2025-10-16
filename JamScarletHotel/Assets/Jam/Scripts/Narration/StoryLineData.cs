@@ -1,4 +1,4 @@
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using UnityEngine.Events;
 using UnityEngine;
 
@@ -13,10 +13,11 @@ public class StoryLineData : ScriptableObject
     public string StoryName { get; private set; } = "New Story Line";
 
     [Header("Trigger")]
-    [Min(0)] public int seasonStoryStart = 0;
-    [Range(0, 1)] public float seasonTriggerTime = 0;
+    [MinValue(0)] public int seasonStoryStart = 0;
+    [PropertyRange(0, 1)] public float seasonTriggerTime = 0;
 
-    [Header("Info"), Expandable]
+    [Header("Info"), PropertyOrder(2), PropertySpace(8)]
+    [ListDrawerSettings(Expanded = true)]
     public StoryBlocData[] storyBlocs;
 
     protected virtual string GetScoName() => $"SL_{StoryName.Replace(" ", "_").Replace("/", "_")}";
