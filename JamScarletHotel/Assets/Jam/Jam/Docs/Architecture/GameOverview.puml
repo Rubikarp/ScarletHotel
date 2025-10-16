@@ -1,0 +1,177 @@
+@startuml GameOverview
+title Scarlet Hotel - High-Level Architecture
+
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+
+package Time {
+  class TimeManager {
+    +SeasonIndex : int
+    +WeekIndex : int
+    +DayIndex : int
+    +GameTime : float
+    +GameTimeSpeed : float
+    +IsPaused : bool
+    +SeasonProgress() : float
+    +DeltaSimulTime() : float
+    +OnTimeTick(delta: float)
+    +OnNewWeek(week: int)
+    +OnNewSeason(season: int)
+  }
+
+  class GameTimer
+  class GameTimerUI
+  class TimeProgressBar
+  class ButtonManager
+  class GameTimeSettings
+}
+
+package Narration {
+  class StoryManager
+  class GameStoryLine
+  class StoryLineData <<ScriptableObject>> {
+    +StoryName : string
+    +seasonStoryStart : int
+    +seasonTriggerTime : float
+  }
+  class StoryBlocData <<ScriptableObject>> {
+    +blocName : string
+    +situation : string
+  }
+  class StoryBlocUI
+  class StoryChoice
+}
+
+package Cards {
+  interface ICardData
+  interface IPeopleCardData
+
+  class BaseCardData <<ScriptableObject>> {
+    +Title : string
+    +Artwork : Sprite
+    +Description : string
+    +Influence : EInfluence
+  }
+  class ObjectCardData
+  class ClientCardData
+  class EmployeeCardData
+
+  class CardHandler {
+    +SpawnCard(data: ICardData, slot: ICardSlot)
+    +SpawnCardInHand(data: ICardData)
+    +SpawnCardAtHotelEntry(data: ICardData)
+  }
+
+  interface ICardSlot {
+    +CanSlotCard(card: BaseGameCard) : bool
+    +ReceivedCard(card: BaseGameCard)
+    +ReleaseCard(card: BaseGameCard)
+  }
+  class CardSlot {
+    +AcceptedType : ECardType
+    +RequiredInfluences : EInfluence
+    +CurrentCard : BaseGameCard
+  }
+  class SlotHolder {
+    +AcceptedType : ECardType
+    +RequiredInfluences : EInfluence
+    +SlotLimit : int
+  }
+
+  class BaseGameCard {
+    +Timer : GameTimer
+    +Visual : CardVisual
+    +TryLoadData(newData: ICardData)
+    +DestroyCard()
+  }
+  class ObjectGameCard
+  class ClientGameCard
+  class EmployeeGameCard
+  class CardManipulation
+  class CardVisual
+}
+
+package Rooms {
+  class RoomScreenManager
+  abstract class BaseRoom
+  class ReceptionRoom
+  class BedroomRoom
+  class OutdoorRoom
+  class BaseRoomScreenUI
+}
+
+package Scoring {
+  class ScoresManager
+  class ScoreProgressBar
+}
+
+package Economy {
+  class MoneyManager
+}
+
+package Camera {
+  class CameraHandler
+}
+
+' Relationships
+TimeManager --> GameTimeSettings : uses
+TimeManager <.. StoryManager : queries time
+TimeManager --> GameTimer : ticks
+GameTimerUI --> GameTimer : displays
+TimeProgressBar --> TimeManager : reads progress
+ButtonManager --> TimeManager : controls pause/speed
+
+StoryManager --> GameStoryLine : instantiates
+StoryManager --> StoryLineData : manages
+GameStoryLine --> StoryLineData : loads
+GameStoryLine --> StoryBlocData : sequences
+StoryBlocUI --> StoryBlocData : displays
+GameStoryLine --> StoryBlocUI : controls
+
+CardHandler --> ICardData : spawns with
+CardHandler o--> SlotHolder : Inventory
+CardHandler o--> SlotHolder : HotelEntry
+CardHandler --> ObjectGameCard
+CardHandler --> ClientGameCard
+CardHandler --> EmployeeGameCard
+
+ICardData <|.. BaseCardData
+BaseCardData <|-- ObjectCardData
+BaseCardData <|-- ClientCardData
+BaseCardData <|-- EmployeeCardData
+IPeopleCardData <|.. ClientCardData
+IPeopleCardData <|.. EmployeeCardData
+
+BaseGameCard --> ICardData : reads
+BaseGameCard --> GameTimer : has
+BaseGameCard --> CardVisual : has
+BaseGameCard --> CardManipulation : uses
+BaseGameCard --> CardSlot : CurrentSlot
+BaseGameCard <|-- ObjectGameCard
+BaseGameCard <|-- ClientGameCard
+BaseGameCard <|-- EmployeeGameCard
+
+ICardSlot <|.. CardSlot
+ICardSlot <|.. SlotHolder
+SlotHolder o--> CardSlot : aggregates
+CardSlot --> BaseGameCard : holds
+
+RoomScreenManager --> BaseRoomScreenUI : controls
+BaseRoom <|-- ReceptionRoom
+BaseRoom <|-- BedroomRoom
+BaseRoom <|-- OutdoorRoom
+
+ScoresManager --> ScoreProgressBar : updates
+MoneyManager --> ScoresManager : may affect score
+
+CameraHandler --> BaseRoomScreenUI : follows UI
+
+note as N1
+This diagram shows major systems and their high-level relations.
+It is not exhaustive but reflects the current codebase.
+end note
+
+@enduml
+
+
+

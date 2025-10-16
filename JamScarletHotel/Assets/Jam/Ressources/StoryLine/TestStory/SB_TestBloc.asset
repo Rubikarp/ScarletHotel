@@ -13,31 +13,37 @@ MonoBehaviour:
   m_Name: SB_TestBloc
   m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
   blocName: TestBloc
-  aswerPossibles:
-  - actionName: Refuse
+  situation: Lorem ipsum tkt
+  defaultChoice:
+    actionName: Refuser
     response:
       Character: {fileID: 0}
-      dialogueText: 
-    NeedSpecificCard: 1
+      dialogueText: Svp
+    NeedSpecificCard: 0
     CardTypeNeeded: 7
     InfluenceNeeded: 0
     NextBloc: {fileID: 0}
     lootCards: []
+  otherChoiceAvailable:
   - actionName: Accept
     response:
       Character: {fileID: 0}
-      dialogueText: 
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
+      dialogueText: "Merci fr\xE9ro tu r\xE9gales"
+    NeedSpecificCard: 1
+    CardTypeNeeded: 1
     InfluenceNeeded: 0
     NextBloc: {fileID: 0}
     lootCards: []
-  - actionName: fuck you
+  - actionName: Garde !!!!
     response:
       Character: {fileID: 0}
-      dialogueText: 
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
+      dialogueText: '?!?
+
+        Mais j''ai rien fait
+
+        (mange son gros seum)'
+    NeedSpecificCard: 1
+    CardTypeNeeded: 6
     InfluenceNeeded: 0
     NextBloc: {fileID: 0}
     lootCards: []

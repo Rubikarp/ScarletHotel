@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using AYellowpaper;
 using UnityEngine;
- 
+
 
 public class CardHandler : Singleton<CardHandler>
 {
@@ -16,12 +16,13 @@ public class CardHandler : Singleton<CardHandler>
     [field: SerializeField] public SlotHolder HotelEntry { get; private set; }
 
     [Header("Debug")]
-    [SerializeField, RequireInterface(typeof(ICardData))] 
-    private BaseCardData debugCard;
-    public ICardData DebugCard => (ICardData)debugCard;
+    [SerializeField] private BaseCardData debugEmployeeCard;
+    [SerializeField] private BaseCardData debugClientCard;
+    [SerializeField] private BaseCardData debugObjectCard;
 
-    [Button]
-    public void DEBUG_InstatiateCard() => SpawnCard(DebugCard);
+    [Button] public void DEBUG_EmployeeCard() => SpawnCard(debugEmployeeCard as ICardData);
+    [Button] public void DEBUG_ClientCard() => SpawnCard(debugClientCard as ICardData);
+    [Button] public void DEBUG_ObjectCard() => SpawnCard(debugObjectCard as ICardData);
 
     public void SpawnCard(ICardData cardData, ICardSlot slot = null)
     {
@@ -40,13 +41,13 @@ public class CardHandler : Singleton<CardHandler>
             default:
             case ECardType.Any:
             case ECardType.People:
-                Debug.LogError($"Can't spawn Any or People specific card",this);
+                Debug.LogError($"Can't spawn Any or People specific card", this);
                 return;
         }
 
         card.TryLoadData(cardData);
 
-        if(slot != null)
+        if (slot != null)
         {
             slot.ReceivedCard(card);
         }

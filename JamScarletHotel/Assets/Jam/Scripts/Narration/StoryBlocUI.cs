@@ -38,11 +38,9 @@ public class StoryBlocUI : MonoBehaviour
         CardSlotContainer.DeleteChildren();
         CardSlots.Clear();
 
-        CardSlots = new List<CardSlot>(data.aswerPossibles.Count(x => x.NeedSpecificCard));
-        foreach (var storyChoices in data.aswerPossibles)
+        CardSlots = new List<CardSlot>(data.otherChoiceAvailable.Count(x => x.NeedSpecificCard));
+        foreach (var storyChoices in data.otherChoiceAvailable)
         {
-            if (!storyChoices.NeedSpecificCard) continue;
-
             var slot = Instantiate(CardSlotPrefabs, CardSlotContainer);
             slot.SetRequirement(storyChoices.CardTypeNeeded, storyChoices.InfluenceNeeded);
             CardSlots.Add(slot);
@@ -52,29 +50,26 @@ public class StoryBlocUI : MonoBehaviour
         Description.text = data.situation;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         currentChoice = null;
         string action = string.Empty;
         string reaction = string.Empty;
         if (currentData != null)
         {
-            for (int i = 0; i < currentData.aswerPossibles.Length; i++)
+            for (int i = 0; i < currentData.otherChoiceAvailable.Length; i++)
             {
-                var possibility = currentData.aswerPossibles[i];
-                //Check Condition
-                if (possibility.NeedSpecificCard)
-                {
-                    var slots = CardSlots.FindAll(c => c.AcceptedType == possibility.CardTypeNeeded && c.RequiredInfluences == possibility.InfluenceNeeded);
-                    if (slots.Any(c => c.IsOccupied))
-                    {
-                        currentChoice = possibility;
-                    }
-                }
-                else
+                var possibility = currentData.otherChoiceAvailable[i];
+
+                var slots = CardSlots.FindAll(c => c.AcceptedType == possibility.CardTypeNeeded && c.RequiredInfluences == possibility.InfluenceNeeded);
+                if (slots.Any(c => c.IsOccupied))
                 {
                     currentChoice = possibility;
                 }
+            }
+            if(currentChoice == null)
+            {
+                currentChoice = currentData.defaultChoice;
             }
         }
 
@@ -94,7 +89,7 @@ public class StoryBlocUI : MonoBehaviour
 
     private void OnValidateChoice()
     {
-        if(currentChoice.LootCards.Length > 0)
+        if (currentChoice.LootCards.Length > 0)
         {
             for (int i = 0; i < currentChoice.LootCards.Length; i++)
             {

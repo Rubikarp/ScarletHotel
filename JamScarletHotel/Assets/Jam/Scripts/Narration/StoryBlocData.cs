@@ -14,13 +14,18 @@ public class StoryBlocData : ScriptableObject
     public string situation = "Lorem ipsum tkt";
 
     [ListDrawerSettings(Expanded = true)]
-    public StoryChoice[] aswerPossibles;
+    public StoryChoice defaultChoice;
+    [ListDrawerSettings(Expanded = true)]
+    public StoryChoice[] otherChoiceAvailable;
 
     protected virtual string GetScoName() => $"SB_{blocName.Replace(" ", "_").Replace("/", "_")}";
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
+        defaultChoice.NeedSpecificCard = false;
+        foreach (var choice in otherChoiceAvailable) choice.NeedSpecificCard = true;
+
         string assetPath = AssetDatabase.GetAssetPath(this);
         string currentName = System.IO.Path.GetFileNameWithoutExtension(assetPath);
 
