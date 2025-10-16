@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -9,7 +10,11 @@ using UnityEditor;
 public class StoryBlocData : ScriptableObject
 {
     public string blocName = "New Story Bloc";
-    public List<StoryChoice> aswerPossibles = new List<StoryChoice>(4);
+    [TextArea(1,5)]
+    public string situation = "Lorem ipsum tkt";
+
+    [ListDrawerSettings(Expanded = true)]
+    public StoryChoice[] aswerPossibles;
 
     protected virtual string GetScoName() => $"SB_{blocName.Replace(" ", "_").Replace("/", "_")}";
 

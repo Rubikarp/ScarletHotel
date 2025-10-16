@@ -9,8 +9,7 @@ public delegate void SeasonChangeEvent(int CurrentSeason);
 public class TimeManager : Singleton<TimeManager>
 {
     [Header("Settings")]
-    [SerializeField]
-    private GameTimeSettings gameTimeSettings;
+    [SerializeField] private GameTimeSettings gameTimeSettings;
 
     public int SeasonDuration => gameTimeSettings.SeasonDuration;
     public int WeekDuration => gameTimeSettings.WeekDuration;
@@ -46,8 +45,6 @@ public class TimeManager : Singleton<TimeManager>
 
     private void Start()
     {
-        gameTimeSettings = GameTimeSettings.Instance;
-
         GameTime = 0;
         DayIndex = 0;
         WeekIndex = 0;

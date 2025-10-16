@@ -15,4 +15,5 @@ MonoBehaviour:
   <StoryName>k__BackingField: New Story Line
   seasonStoryStart: 0
   seasonTriggerTime: 0
-  storyBlocs: []
+  storyBlocs:
+  - {fileID: 11400000, guid: ef6972b3de84dd948b52bee5e5265276, type: 2}

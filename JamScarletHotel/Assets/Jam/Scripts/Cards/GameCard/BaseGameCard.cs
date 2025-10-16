@@ -1,4 +1,5 @@
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
@@ -6,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using AYellowpaper;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CardManipulation))]
 public abstract class BaseGameCard: MonoBehaviour

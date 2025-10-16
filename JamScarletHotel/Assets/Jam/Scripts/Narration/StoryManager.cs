@@ -9,6 +9,7 @@ public class StoryManager : Singleton<StoryManager>
 
     [Header("StoryLineData")]
     [SerializeField] private GameStoryLine gameStoryLinePrefab;
+    [SerializeField] private RectTransform gameStoryContainer;
 
     [Header("StoryLineData")]
     public List<StoryLineData> storyLinesRemaining;
@@ -19,6 +20,10 @@ public class StoryManager : Singleton<StoryManager>
     public List<StoryBlocData> StoryBlocTriggered;
     public List<StoryBlocData> StoryBlocFinished;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     private void Start()
     {
         timeManager = TimeManager.Instance;
@@ -29,7 +34,7 @@ public class StoryManager : Singleton<StoryManager>
         for (int i = 0; i < seasonStoryLine.Length; i++)
         {
             var storyLine = seasonStoryLine[i];
-            if (storyLine.seasonTriggerTime > timeManager.SeasonProgress)
+            if (storyLine.seasonTriggerTime < timeManager.SeasonProgress)
             {
                 storyLinesRemaining.Remove(storyLine);
                 LaunchStoryLine(storyLine);
@@ -45,7 +50,10 @@ public class StoryManager : Singleton<StoryManager>
             Debug.LogError($"StoryLineData {storyLine.StoryName} doesn't contain any StoryBlocData", this);
         }
 
-
+        var gameStory = Instantiate(gameStoryLinePrefab, gameStoryContainer);
+        gameStory.name = storyLine.name;
+        gameStory.LoadStoryLine(storyLine);
+        gameStory.StartStoryLine();
     }
 
     [Button]

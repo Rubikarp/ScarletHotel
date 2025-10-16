@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using Sirenix.OdinInspector;
-using AYellowpaper;
+﻿using Sirenix.OdinInspector;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]

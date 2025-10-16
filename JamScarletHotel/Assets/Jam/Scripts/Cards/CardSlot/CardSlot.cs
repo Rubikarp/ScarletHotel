@@ -10,9 +10,10 @@ public interface ICardSlot
 
 }
 
+[RequireComponent(typeof(RectTransform))]
 public class CardSlot : MonoBehaviour, ICardSlot
 {
-    private RectTransform rectTransform;
+    public RectTransform rect;
 
     [Header("Info")]
     [field: SerializeField, ReadOnly]
@@ -28,7 +29,7 @@ public class CardSlot : MonoBehaviour, ICardSlot
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        rect = GetComponent<RectTransform>();
     }
 
     public bool CanSlotCard(BaseGameCard card)

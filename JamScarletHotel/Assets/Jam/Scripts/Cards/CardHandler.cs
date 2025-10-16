@@ -1,6 +1,5 @@
 using Sirenix.OdinInspector;
 using AYellowpaper;
-using UnityEditor;
 using UnityEngine;
  
 
@@ -14,6 +13,7 @@ public class CardHandler : Singleton<CardHandler>
     [field: Header("Component")]
     [field: SerializeField] public Transform CardHandlingContainer { get; private set; }
     [field: SerializeField] public SlotHolder Inventory { get; private set; }
+    [field: SerializeField] public SlotHolder HotelEntry { get; private set; }
 
     [Header("Debug")]
     [SerializeField, RequireInterface(typeof(ICardData))] 
@@ -23,7 +23,7 @@ public class CardHandler : Singleton<CardHandler>
     [Button]
     public void DEBUG_InstatiateCard() => SpawnCard(DebugCard);
 
-    public void SpawnCard(ICardData cardData, CardSlot slot = null)
+    public void SpawnCard(ICardData cardData, ICardSlot slot = null)
     {
         BaseGameCard card = null;
         switch (cardData.CardType)
@@ -55,4 +55,7 @@ public class CardHandler : Singleton<CardHandler>
             Inventory.ReceivedCard(card);
         }
     }
+
+    public void SpawnCardInHand(ICardData cardData) => SpawnCard(cardData, Inventory);
+    public void SpawnCardAtHotelEntry(ICardData cardData) => SpawnCard(cardData, HotelEntry);
 }

@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 
 [RequireComponent(typeof(CanvasGroup))]
 [RequireComponent(typeof(BaseGameCard))]
 public class CardManipulation : MonoBehaviour,
     IPointerUpHandler, IPointerDownHandler,
     IPointerEnterHandler, IPointerExitHandler,
-    IDragHandler, IBeginDragHandler, IEndDragHandler
+    IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private CanvasGroup canvasGroup;
 

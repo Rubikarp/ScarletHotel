@@ -1,11 +1,11 @@
-﻿using NaughtyAttributes;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GameTimer : MonoBehaviour
 {
     [field: SerializeField] public float TimerDuration { get; private set; } = 10f;
-    [field: SerializeField, ProgressBar("TimerDuration")] public float RemainingTime { get; private set; } = 10f;
+    [field: SerializeField, ProgressBar(0, "TimerDuration")] public float RemainingTime { get; private set; } = 10f;
     [field: SerializeField] public bool IsActive { get; private set; } = false;
 
     public UnityEvent OnTimerEnd = new UnityEvent();

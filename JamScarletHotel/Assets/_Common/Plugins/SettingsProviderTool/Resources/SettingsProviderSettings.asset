@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728c7972a6316d541aca16d3e7717efc, type: 3}
+  m_Script: {fileID: 11500000, guid: f7eb2257baaefb846ae65360b511b8ac, type: 3}
   m_Name: SettingsProviderSettings
-  m_EditorClassIdentifier: SettingsTools::SettingsTools.SettingsProviderSettings
-  nameSpace: _WorldGame
-  settingsName: GameEconomy
+  m_EditorClassIdentifier: SettingsTools::SettingsProviderSettings
+  nameSpace: _KarpProd
+  settingsName: Exemple
