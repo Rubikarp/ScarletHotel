@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Papillon_1
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Papillon_1
+  situation: "Elle est jeune, lui non. Elle est belle, lui moyennement. Il a une
+    alliance, elle non. Vous comprenez rapidement la nature de la relation qui lie
+    ce couple disparate. La jeune femme s\u2019approche de la r\xE9ception avec nonchalance.
+    \u201CBonjour m\u2019sieur. Combien pour louer une chambre une heure?\u201D "
+  defaultChoice:
+    actionName: Refuser
+    response:
+      Character: {fileID: 0}
+      dialogueText: "Vous ne tenez pas un h\xF4tel de passe. Vous expliquez \xE0
+        la jeune fille que vous n\u2019offrez pas ce genre de locations de courte
+        dur\xE9e. Elle comprend le message et sort, suivie de son client. "
+    NeedSpecificCard: 0
+    CardTypeNeeded: 7
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - actionName: Accepter
+    response:
+      Character: {fileID: 0}
+      dialogueText: "Vous communiquez un prix et indiquez une chambre \xE0 l\u2019\xE9tage.
+        La prostitu\xE9e fait signe \xE0 son client qui la suit, tentant de garder
+        une contenance pour masquer sa g\xEAne. "
+    NeedSpecificCard: 1
+    CardTypeNeeded: 2
+    InfluenceNeeded: 2
+    NextBloc: {fileID: 11400000, guid: 3ba2e20dc06ce514f90262a5deece21f, type: 2}
+    lootCards: []

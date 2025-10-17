@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de7b108430e76b48a3faff1447cb8d1, type: 3}
   m_Name: GameTimeSettings
   m_EditorClassIdentifier: Assembly-CSharp::GameTimeSettings
-  <DayDuration>k__BackingField: 30
-  <SeasonDuration>k__BackingField: 14
+  <SeasonDuration>k__BackingField: 15
   <WeekDuration>k__BackingField: 7
+  <DayDuration>k__BackingField: 30
