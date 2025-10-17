@@ -49,6 +49,7 @@ public class StoryManager : Singleton<StoryManager>
         {
             Debug.LogError($"StoryLineData {storyLine.StoryName} doesn't contain any StoryBlocData", this);
         }
+        timeManager.SetPause(true);
 
         var gameStory = Instantiate(gameStoryLinePrefab, gameStoryContainer);
         gameStory.name = storyLine.name;

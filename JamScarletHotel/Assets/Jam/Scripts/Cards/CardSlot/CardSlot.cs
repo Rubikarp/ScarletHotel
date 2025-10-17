@@ -2,18 +2,20 @@
 using UnityEngine.Events;
 using UnityEngine;
 
+public class CardEvent : UnityEvent<BaseGameCard> { }
 public interface ICardSlot
 {
     public bool CanSlotCard(BaseGameCard card);
     public void ReceivedCard(BaseGameCard card);
     public void ReleaseCard(BaseGameCard card);
 
+    public CardEvent OnCardDataChange { get; }
 }
 
 [RequireComponent(typeof(RectTransform))]
 public class CardSlot : MonoBehaviour, ICardSlot
 {
-    public RectTransform rect;
+    public RectTransform rect { get; private set; }
 
     [Header("Info")]
     [field: SerializeField, ReadOnly]
@@ -25,9 +27,15 @@ public class CardSlot : MonoBehaviour, ICardSlot
     public bool IsOccupied => CurrentCard != null;
 
     [Header("Event")]
-    public UnityEvent<ICardData> OnCardDataChange { get; private set; }
+    [field: SerializeField] public CardEvent OnCardDataChange { get; private set; } = new CardEvent();
+    [field: SerializeField] public CardEvent onCardReceived { get; private set; } = new CardEvent();
+    [field: SerializeField] public CardEvent onCardReleased { get; private set; } = new CardEvent();
 
-    private void Awake()
+    protected virtual void Awake()
+    {
+        rect = GetComponent<RectTransform>();
+    }
+    protected virtual void OnValidate()
     {
         rect = GetComponent<RectTransform>();
     }
@@ -64,7 +72,7 @@ public class CardSlot : MonoBehaviour, ICardSlot
         ReceivedCard(otherSlot.CurrentCard);
         otherSlot.ReceivedCard(tempCard);
     }
-    
+
     public void ReceivedCard(BaseGameCard card)
     {
         if (!CanSlotCard(card))
@@ -74,10 +82,9 @@ public class CardSlot : MonoBehaviour, ICardSlot
         }
 
         CurrentCard = card;
-        CurrentCard.CurrentSlot = this;
-
-        card.transform.SetParent(this.transform, false);
-        card.transform.localPosition = Vector3.zero;
+        CurrentCard.FitIntoSlot(this);
+        OnCardDataChange?.Invoke(card);
+        onCardReceived?.Invoke(card);
     }
     public void ReleaseCard() => ReleaseCard(CurrentCard);
     public void ReleaseCard(BaseGameCard card)
@@ -89,12 +96,14 @@ public class CardSlot : MonoBehaviour, ICardSlot
         }
         if (CurrentCard != card)
         {
-            Debug.LogError($"This Slot doesn't contain {card.name}",this);
+            Debug.LogError($"This Slot doesn't contain {card.name}", this);
             return;
         }
 
-        CurrentCard.CurrentSlot = null;
+        CurrentCard.ReleaseFromSlot();
         CurrentCard = null;
+        OnCardDataChange?.Invoke(card);
+        onCardReleased?.Invoke(card);
     }
 
     public void SetRequirement(ECardType requiredType = ECardType.Any, EInfluence requiredInfluence = EInfluence.None)
@@ -102,7 +111,7 @@ public class CardSlot : MonoBehaviour, ICardSlot
         AcceptedType = requiredType;
         RequiredInfluences = requiredInfluence;
 
-        if(CurrentCard == null) return ;
+        if (CurrentCard == null) return;
         if (!CanSlotCard(CurrentCard))
         {
             ReleaseCard();

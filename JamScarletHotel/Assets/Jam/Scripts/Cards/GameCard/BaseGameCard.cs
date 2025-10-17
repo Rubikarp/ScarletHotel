@@ -6,8 +6,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using AYellowpaper;
 
+[RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(CardManipulation))]
 public abstract class BaseGameCard: MonoBehaviour
 {
@@ -19,26 +19,34 @@ public abstract class BaseGameCard: MonoBehaviour
     public CardVisual Visual;
 
     [SerializeField, ReadOnly]
-    protected CardSlot currentSlot;
-    protected CardSlot lastSlotBuffer;
-    public CardSlot CurrentSlot
+    protected CardSlot _currentSlot;
+    protected CardSlot _lastSlotBuffer;
+    public CardSlot CurrentSlot => _currentSlot;
+    public void FitIntoSlot(CardSlot slot)
     {
-        get => currentSlot;
-        set
-        {
-            lastSlotBuffer = currentSlot = value;
-        }
+        if (_currentSlot == slot) return;
+
+        _lastSlotBuffer = _currentSlot;
+        _currentSlot = slot;
+
+        transform.SetParent(slot.transform, false);
+        transform.localPosition = Vector3.zero;
+    }
+    public void ReleaseFromSlot()
+    {
+        _lastSlotBuffer = _currentSlot;
+        _currentSlot = null;
     }
 
     [Header("Data")]
-    [SerializeField, RequireInterface(typeof(ICardData))]
-    protected ScriptableObject currentData;
-    private ScriptableObject previousData;
-    public ICardData CardData => (ICardData)currentData;
+    [SerializeField]
+    protected ICardData currentData;
+    private ICardData previousData;
+    public ICardData CardData => currentData;
 
     public void TryLoadData(ICardData newData)
     {
-        currentData = (ScriptableObject)newData;
+        currentData = newData;
         if (IsValidCardData())
         {
             LoadData();
@@ -89,8 +97,6 @@ public abstract class BaseGameCard: MonoBehaviour
     protected void OnDragStart(CardManipulation card)
     {
         CurrentSlot?.ReleaseCard(this);
-        CurrentSlot = null;
-
         transform.SetParent(cardHandler.CardHandlingContainer, false);
     }
     protected void OnDragRelease(CardManipulation card)
@@ -114,7 +120,7 @@ public abstract class BaseGameCard: MonoBehaviour
         }
         else
         {
-            lastSlotBuffer?.ReceivedCard(this);
+            _lastSlotBuffer?.ReceivedCard(this);
         }
     }
 }

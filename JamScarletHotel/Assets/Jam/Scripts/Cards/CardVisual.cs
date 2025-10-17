@@ -84,12 +84,19 @@ public class CardVisual : MonoBehaviour
         Vector3 targetPos = cardRect.position + offset;
         Vector3 displacement = rect.position - targetPos;
 
+        if(displacement.magnitude > 3100)
+        {
+            var lenght = displacement.magnitude - 3100;
+            rect.position += displacement.normalized * lenght;
+        }
+
         Vector3 springForce = -displacement * stiffness;
         Vector3 dampingForce = -velocity * damping;
 
         Vector3 acceleration = springForce + dampingForce;
 
         velocity += acceleration * Time.deltaTime;
+        if (velocity.magnitude > 1000) velocity = velocity.normalized * 1000;
         rect.position += velocity * Time.deltaTime;
 
         //Rot form velocity
