@@ -34,12 +34,12 @@ public class GameStoryLine : MonoBehaviour
     public void LoadStoryLine(StoryLineData storyLine)
     {
         storyLineData = storyLine;
+        currentStoryblockIndex = 0;
     }
     [Button]
     public void StartStoryLine()
     {
-        currentStoryblockIndex = 0;
-        CurrentStoryBloc = storyLineData.storyBlocs[0];
+        CurrentStoryBloc = storyLineData.storyBlocs[currentStoryblockIndex];
         storyWindow.LaunchStoryBloc(CurrentStoryBloc);
     }
 }
