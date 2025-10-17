@@ -13,12 +13,21 @@ MonoBehaviour:
   m_Name: SB_Faiseuse_d'Ange_1
   m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
   blocName: Faiseuse d'Ange 1
-  situation: Lorem ipsum tkt
+  situation: "Elle \xE0 l\u2019air d\u2019avoir \xE0 peine dix-neuf ans. Habill\xE9e
+    d\xE9cemment, sans artifice, l\u2019air timide, tra\xEEnant une petite valise.
+    Elle s\u2019arr\xEAte \xE0 mi-chemin de la r\xE9ception, consulte le panneau
+    indiquant le prix des chambres, et finit par s\u2019approcher. \r\n\u201CBonjour
+    Monsieur. Est-ce possible de loger ici pour trois nuits? Elle sort un portefeuille
+    et continue, h\xE9sitante. Je peux payer d\u2019avance.\u201D\r\nElle pr\xE9sente
+    un passeport au nom d\u2019Emma Gauthier. On dirait une fille de bonne famille,
+    avec ses mani\xE8res et ses v\xEAtements de qualit\xE9. N\xE9anmoins, il n\u2019est
+    pas bien vu qu\u2019une jeune fille non mari\xE9e r\xE9side seule \xE0 l\u2019h\xF4tel. "
   defaultChoice:
     actionName: Refuser
     response:
       Character: {fileID: 0}
-      dialogueText: Svp
+      dialogueText: "Vous expliquez poliment \xE0 la jeune fille que l'h\xF4tel est
+        complet et lui indiquez d\u2019autres h\xF4tels dans le quartier."
     NeedSpecificCard: 0
     CardTypeNeeded: 7
     InfluenceNeeded: 0

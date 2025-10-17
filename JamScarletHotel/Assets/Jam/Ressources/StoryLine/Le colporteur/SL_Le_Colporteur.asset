@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StoryLineData
   <StoryName>k__BackingField: Le Colporteur
   seasonStoryStart: 0
-  seasonTriggerTime: 1
+  seasonTriggerTime: 0.196
   storyBlocs:
   - {fileID: 11400000, guid: d9331e6ebc17de44e9bda9a338052cfb, type: 2}

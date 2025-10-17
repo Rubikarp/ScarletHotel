@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd6fcf075f85a6547ad43dcb11d77e38, type: 3}
-  m_Name: SL_Faiseuse_d'Ange
+  m_Name: SL_Intro_Proto
   m_EditorClassIdentifier: Assembly-CSharp::StoryLineData
-  <StoryName>k__BackingField: Faiseuse d'Ange
+  <StoryName>k__BackingField: Intro Proto
   seasonStoryStart: 0
-  seasonTriggerTime: 0.536
+  seasonTriggerTime: 0
   storyBlocs:
-  - {fileID: 11400000, guid: 98c4a809cf131ea45b43a3096cfaa9f9, type: 2}
+  - {fileID: 11400000, guid: 5d9bce7b6f3bdd74894723df881e2313, type: 2}
