@@ -17,6 +17,10 @@ public class SlotHolder : MonoBehaviour, ICardSlot
 
     public bool HasNoLimit => SlotLimit <= 0;
 
+    [Header("Event")]
+    public CardEvent onCardDataChange;
+    public CardEvent OnCardDataChange => onCardDataChange;
+
     public bool CanSlotCard(BaseGameCard card)
     {
         if(!HasNoLimit) return true;
@@ -38,6 +42,7 @@ public class SlotHolder : MonoBehaviour, ICardSlot
             slot = AddNewSlot();
         }
         slot.ReceivedCard(card);
+        onCardDataChange?.Invoke(card);
     }
     public void ReleaseCard(BaseGameCard card)
     {
@@ -50,6 +55,7 @@ public class SlotHolder : MonoBehaviour, ICardSlot
         }
 
         slot.ReleaseCard(card);
+        onCardDataChange?.Invoke(card);
     }
 
 
@@ -94,8 +100,4 @@ public class SlotHolder : MonoBehaviour, ICardSlot
         }
     }
 
-    private void Update()
-    {
-        
-    }
 }

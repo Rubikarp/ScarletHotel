@@ -27,7 +27,7 @@ public enum ERoomType
 {
     Bedroom = 0,
     Reception = 1,
-    Outdoor = 2, // Throw away client
+    Trash = 2, // Throw away client
     Kitchen = 3,
     DanceHall = 4,
 }

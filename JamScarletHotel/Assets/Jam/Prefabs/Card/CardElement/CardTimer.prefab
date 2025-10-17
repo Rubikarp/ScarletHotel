@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 896768927877233106}
-  - component: {fileID: 8703598907287856345}
+  - component: {fileID: 7822518547408812013}
   - component: {fileID: 4892395051062727823}
+  - component: {fileID: 8703598907287856345}
   m_Layer: 5
   m_Name: CardTimer
   m_TagString: Untagged
@@ -40,18 +41,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &8703598907287856345
-CanvasGroup:
+--- !u!114 &7822518547408812013
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5328983029655567991}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105bff9e6fcfe624ab0e4e6541d10be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
+  <TimerDuration>k__BackingField: 10
+  <RemainingTime>k__BackingField: 10
+  <IsActive>k__BackingField: 0
+  OnTimerEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4892395051062727823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,10 +71,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b5d9866ad185b4f999b5c6f03f4b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimerUI
-  timer: {fileID: 0}
+  timer: {fileID: 7822518547408812013}
   circularPie: {fileID: 7940807609423139194}
   lockImage: {fileID: 0}
   TimeArea: {fileID: 4355482526410040069}
+--- !u!225 &8703598907287856345
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328983029655567991}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5886075720920264570
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: eda26be2b28f7e44185523bbbbcd333c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 502765a42a7a10a44b9ba7d7f5cc9778, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -209,7 +228,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: eda26be2b28f7e44185523bbbbcd333c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 502765a42a7a10a44b9ba7d7f5cc9778, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -420,7 +439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: eda26be2b28f7e44185523bbbbcd333c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 502765a42a7a10a44b9ba7d7f5cc9778, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
