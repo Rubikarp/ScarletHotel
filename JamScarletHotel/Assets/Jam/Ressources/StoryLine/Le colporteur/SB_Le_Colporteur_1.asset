@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Le_Colporteur_1
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Le Colporteur 1
+  situation: "L\u2019aube vient \xE0 peine de poindre quand l\u2019homme entre \xE0
+    la r\xE9ception. Une large cicatrice larde le haut de son visage et vient se
+    perdre derri\xE8re le masque qui recouvre son menton et sa l\xE8vre inf\xE9rieure.
+    C\u2019est probablement un v\xE9t\xE9ran. Il porte sur son dos un large panier
+    de colporteur. Il marmonne quelques paroles \xE9touff\xE9es derri\xE8re son masque
+    et, apr\xE8s avoir v\xE9rifi\xE9 que vous \xE9tiez seuls, \xE9tale quelques objets
+    sur le comptoir de la r\xE9ception. "
+  defaultChoice:
+    actionName: Refuser
+    response:
+      Character: {fileID: 0}
+      dialogueText: 
+    NeedSpecificCard: 0
+    CardTypeNeeded: 7
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - actionName: Acheter ses objets
+    response:
+      Character: {fileID: 0}
+      dialogueText: "Vous ouvrez la caisse, posez quelques billets froiss\xE9s sur
+        le comptoir et r\xE9cup\xE9rez les objets du colporteur. "
+    NeedSpecificCard: 1
+    CardTypeNeeded: 4
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards:
+    - {fileID: 11400000, guid: 9fecbdcd629d4df4386a38cd7802857d, type: 2}
+    - {fileID: 11400000, guid: f5124566eca3aba44bc212f9142bfb6d, type: 2}
+    - {fileID: 11400000, guid: 0cb5886f33eb01943b1eb38c99c4613b, type: 2}

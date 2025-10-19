@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Papillon_3
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Papillon_3
+  situation: "Ana\xEBlle vous  avait demand\xE9 une belle chambre pour recevoir son
+    officier. Vous lui avez donne\xE9.."
+  defaultChoice:
+    actionName: Une chambre minable
+    response:
+      Character: {fileID: 0}
+      dialogueText: "L\u2019officier d\xE9vale les escaliers une cigarette \xE0 moiti\xE9
+        consum\xE9e \xE0 la main. Il finit de boutonner sa ceinture en vous d\xE9visageant
+        puis \xE9crase la cigarette sur le comptoir de la r\xE9ception et sort sans
+        un mot. \r\nAna\xEBlle descend peu apr\xE8s, ajustant ses cheveux. \r\n\u201CBah
+        alors? Je t\u2019avais dit une belle chambre. On re\xE7oit pas un jeune premier
+        comme n\u2019importe quel employ\xE9 de bureau. Enfin, voil\xE0 ton argent.\u201D"
+    NeedSpecificCard: 0
+    CardTypeNeeded: 7
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - actionName: Une belle chambre
+    response:
+      Character: {fileID: 0}
+      dialogueText: "Vous entendez des talons claquer sur les marches vermoulues
+        de l\u2019escalier, accompagn\xE9s de petits rires. Les deux amants descendent,
+        toujours bras dessus bras dessous mais un peu plus d\xE9braill\xE9s qu\u2019\xE0
+        l\u2019arriv\xE9e. L\u2019officier jette th\xE9\xE2tralement quelques billets
+        sur le comptoir et entra\xEEne Ana\xEBlle dehors.  "
+    NeedSpecificCard: 1
+    CardTypeNeeded: 2
+    InfluenceNeeded: 2
+    NextBloc: {fileID: 0}
+    lootCards: []

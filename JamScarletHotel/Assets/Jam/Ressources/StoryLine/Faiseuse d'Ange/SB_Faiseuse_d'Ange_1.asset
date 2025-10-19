@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Faiseuse_d'Ange_1
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Faiseuse d'Ange 1
+  situation: "Elle \xE0 l\u2019air d\u2019avoir \xE0 peine dix-neuf ans. Habill\xE9e
+    d\xE9cemment, sans artifice, l\u2019air timide, tra\xEEnant une petite valise.
+    Elle s\u2019arr\xEAte \xE0 mi-chemin de la r\xE9ception, consulte le panneau
+    indiquant le prix des chambres, et finit par s\u2019approcher. \r\n\u201CBonjour
+    Monsieur. Est-ce possible de loger ici pour trois nuits? Elle sort un portefeuille
+    et continue, h\xE9sitante. Je peux payer d\u2019avance.\u201D\r\nElle pr\xE9sente
+    un passeport au nom d\u2019Emma Gauthier. On dirait une fille de bonne famille,
+    avec ses mani\xE8res et ses v\xEAtements de qualit\xE9. N\xE9anmoins, il n\u2019est
+    pas bien vu qu\u2019une jeune fille non mari\xE9e r\xE9side seule \xE0 l\u2019h\xF4tel. "
+  defaultChoice:
+    actionName: Refuser
+    response:
+      Character: {fileID: 0}
+      dialogueText: "Vous expliquez poliment \xE0 la jeune fille que l'h\xF4tel est
+        complet et lui indiquez d\u2019autres h\xF4tels dans le quartier."
+    NeedSpecificCard: 0
+    CardTypeNeeded: 7
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - actionName: Accept
+    response:
+      Character: {fileID: 0}
+      dialogueText: "Merci fr\xE9ro tu r\xE9gales"
+    NeedSpecificCard: 1
+    CardTypeNeeded: 1
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards: []
+  - actionName: Garde !!!!
+    response:
+      Character: {fileID: 0}
+      dialogueText: '?!?
+
+        Mais j''ai rien fait
+
+        (mange son gros seum)'
+    NeedSpecificCard: 1
+    CardTypeNeeded: 6
+    InfluenceNeeded: 0
+    NextBloc: {fileID: 0}
+    lootCards: []
