@@ -82,7 +82,7 @@ public class StoryBlocUI : MonoBehaviour
         else
         {
             validationButton.interactable = true;
-            Reaction.text = currentChoice.response.dialogueText;
+            Reaction.text = currentChoice.response;
             validationTextSlot.text = currentChoice.actionName;
         }
     }

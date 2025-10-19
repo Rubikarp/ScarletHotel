@@ -7,7 +7,7 @@ public class StoryChoice
 {
     [Header("Text")] 
     public string actionName = "Do something";
-    public Dialogue response;
+    [TextArea(3, 10)] public string response;
 
     [Header("Conditions")]
     public bool NeedSpecificCard = false;

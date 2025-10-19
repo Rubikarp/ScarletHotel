@@ -1,19 +1,17 @@
 using Sirenix.OdinInspector;
-using AYellowpaper;
 using UnityEngine;
-
 
 public class CardHandler : Singleton<CardHandler>
 {
-    [Header("Prefabs")]
-    [SerializeField] private ObjectGameCard objectCardPrefab;
-    [SerializeField] private ClientGameCard clientCardPrefab;
-    [SerializeField] private EmployeeGameCard employeeCardPrefab;
-
     [field: Header("Component")]
     [field: SerializeField] public Transform CardHandlingContainer { get; private set; }
     [field: SerializeField] public SlotHolder Inventory { get; private set; }
     [field: SerializeField] public SlotHolder HotelEntry { get; private set; }
+
+    [Header("Prefabs")]
+    [SerializeField] private ObjectGameCard objectCardPrefab;
+    [SerializeField] private ClientGameCard clientCardPrefab;
+    [SerializeField] private EmployeeGameCard employeeCardPrefab;
 
     [Header("Debug")]
     [SerializeField] private BaseCardData debugEmployeeCard;
@@ -58,5 +56,4 @@ public class CardHandler : Singleton<CardHandler>
     }
 
     public void SpawnCardInHand(ICardData cardData) => SpawnCard(cardData, Inventory);
-    public void SpawnCardAtHotelEntry(ICardData cardData) => SpawnCard(cardData, HotelEntry);
 }

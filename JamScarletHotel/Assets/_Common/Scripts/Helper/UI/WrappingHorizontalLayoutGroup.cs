@@ -1,10 +1,12 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine;
 
 public class WrappingHorizontalLayoutGroup : LayoutGroup
 {
     public Vector2 Spacing = Vector2.one * 10f;
+    private Vector2 contentSize = Vector2.zero;
+    private Vector2 containerSize = Vector2.zero;
 
     public override void CalculateLayoutInputHorizontal()
     {
@@ -27,13 +29,13 @@ public class WrappingHorizontalLayoutGroup : LayoutGroup
 
     private void ArrangeChildren()
     {
-        Vector2 containerSize = new Vector2(
+        contentSize = Vector2.zero;
+        containerSize = new Vector2(
             rectTransform.rect.width - (padding.left + padding.right),
             rectTransform.rect.height - (padding.top + padding.bottom)
         );
         Vector2 currentPos = new Vector2(padding.left, padding.top);
         Vector2 currentLineMaxSize = Vector2.zero;
-        Vector2 contentSize = Vector2.zero;
 
         // Store children in the current line
         var currentLineChildren = new List<RectTransform>();
@@ -83,6 +85,7 @@ public class WrappingHorizontalLayoutGroup : LayoutGroup
         }
 
         // Final alignment for the last row
+        currentLineMaxSize.x -= Spacing.x; // Remove last spacing
         AlignLine(currentLineChildren, currentLineMaxSize.x, containerSize.x);
 
         // Final update for the last row
@@ -90,7 +93,25 @@ public class WrappingHorizontalLayoutGroup : LayoutGroup
         contentSize.y = Mathf.Max(contentSize.y, currentPos.y + currentLineMaxSize.y);
 
         // Offset children based on vertical alignment
-        AlignementBloc(containerSize, contentSize);
+        AlignementBloc();
+        SetPreferedSize();
+    }
+
+    private void SetPreferedSize()
+    {
+        // Utilise la méthode SetLayoutInputForAxis pour définir les tailles préférées
+        // Axe 0 = horizontal, Axe 1 = vertical
+        Vector2 totalPreferredSize = new Vector2(
+            containerSize.x + (padding.left + padding.right), 
+            containerSize.y + (padding.top + padding.bottom)
+            );
+
+        SetLayoutInputForAxis(containerSize.x, totalPreferredSize.x, totalPreferredSize.x, 0);
+        SetLayoutInputForAxis(containerSize.y, totalPreferredSize.y, totalPreferredSize.y,  1);
+
+        m_TotalMinSize = contentSize;
+        m_TotalFlexibleSize = totalPreferredSize;
+        m_TotalPreferredSize = totalPreferredSize;
     }
 
     private void AlignLine(List<RectTransform> lineChildren, float lineWidth, float containerWidth)
@@ -126,7 +147,7 @@ public class WrappingHorizontalLayoutGroup : LayoutGroup
             child.anchoredPosition += new Vector2(offsetX, 0);
         }
     }
-    private void AlignementBloc(Vector2 containerSize, Vector2 contentSize)
+    private void AlignementBloc()
     {
         Vector2 remainingSpace = containerSize - contentSize;
 
