@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &703295807027765550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6637308378184499923}
+  - component: {fileID: 5790484704260513979}
+  m_Layer: 5
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6637308378184499923
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703295807027765550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4313886800180489469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5790484704260513979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703295807027765550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105bff9e6fcfe624ab0e4e6541d10be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
+  <TimerDuration>k__BackingField: 10
+  <RemainingTime>k__BackingField: 10
+  <IsActive>k__BackingField: 0
+  OnTimerEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2858508575480025904
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,10 +66,8 @@ GameObject:
   - component: {fileID: 6440011750621382931}
   - component: {fileID: 533912711003532425}
   - component: {fileID: 5036752453647742052}
-  - component: {fileID: 3291378399089380878}
-  - component: {fileID: 3521649314333594342}
+  - component: {fileID: 2027184039046138714}
   - component: {fileID: 3424985307956508685}
-  - component: {fileID: 3016846675590896602}
   m_Layer: 5
   m_Name: Card_Client
   m_TagString: Untagged
@@ -35,6 +87,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6637308378184499923}
   - {fileID: 5005839961403014556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,7 +146,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &3291378399089380878
+--- !u!114 &2027184039046138714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,71 +155,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2858508575480025904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a98125502f715b4b83cfb77b434e436, type: 3}
+  m_Script: {fileID: 11500000, guid: db5d65dd1b7484e43b46448b296eb174, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.6933962, b: 0.6933962, a: 1}
-    m_PressedColor: {r: 1, g: 0.84684294, b: 0.5424528, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 533912711003532425}
---- !u!114 &3521649314333594342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2858508575480025904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c58cd8a826e6a34b96fb28bc67d5153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CardManipulation
-  <isHovering>k__BackingField: 0
+  m_EditorClassIdentifier: Common::DragElement
+  <IsHovering>k__BackingField: 0
+  <isPressed>k__BackingField: 0
   <isDragging>k__BackingField: 0
   dragOffset: {x: 0, y: 0, z: 0}
-  EnterHoverEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  ExitHoverEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  MouseDownEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  MouseUpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  BeginDragEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  EndDragEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &3424985307956508685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,30 +175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9120d57085093046b5858dd19e48273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClientGameCard
-  Timer: {fileID: 3016846675590896602}
-  Visual: {fileID: 0}
-  currentSlot: {fileID: 0}
-  <card>k__BackingField: {fileID: 3521649314333594342}
-  currentData: {fileID: 11400000, guid: 1a2f90e6bcb2d3e4191efd8e03d7c213, type: 2}
+  Timer: {fileID: 5790484704260513979}
+  Visual: {fileID: 4459331640333832559}
+  _currentSlot: {fileID: 0}
   CurrentSatisfaction: 5
---- !u!114 &3016846675590896602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2858508575480025904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 105bff9e6fcfe624ab0e4e6541d10be6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  <TimerDuration>k__BackingField: 10
-  <RemainingTime>k__BackingField: 10
-  <IsActive>k__BackingField: 0
-  OnTimerEnd:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &5734684349746276170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,19 +267,115 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3682732346174297606, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: m_text
+      value: No Description
+      objectReference: {fileID: 0}
     - target: {fileID: 6583128025633487457, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 3016846675590896602}
+      objectReference: {fileID: 0}
     - target: {fileID: 7699052634655529002, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
       propertyPath: m_Name
       value: CardVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 7937686391785925176, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: m_text
+      value: Lorem Ipsum
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248073922778265125, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 3424985307956508685}
+    - target: {fileID: 8248073922778265125, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7699052634655529002, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2215975766489660499}
+    - targetCorrespondingSourceObject: {fileID: 7699052634655529002, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7012720819122054229}
   m_SourcePrefab: {fileID: 100100000, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+--- !u!1 &2687864597296447328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7699052634655529002, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+  m_PrefabInstance: {fileID: 5734684349746276170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2215975766489660499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687864597296447328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b05dcc3a1f01a84fab89385c90c2928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Common::DragElementFollow
+  linkedElement: {fileID: 2027184039046138714}
+  motionStiffness: 200
+  motionDamping: 20
+  offset: {x: 0, y: 0, z: 0}
+  maxVelocity: 500
+  targetPos: {x: 0, y: 0, z: 0}
+  trajectory: {x: 0, y: 0, z: 0}
+  velocitySpeed: 0
+  <Velocity>k__BackingField: {x: 0, y: 0, z: 0}
+--- !u!114 &7012720819122054229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687864597296447328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26315308222cca04082e932823b80976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Common::DragElementFollow2DRotation
+  maxBendAngle: 60
+  bendCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4459331640333832559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8248073922778265125, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}
+  m_PrefabInstance: {fileID: 5734684349746276170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687864597296447328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66389fc080473a34b8e3e7a8bab817dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardVisual
 --- !u!224 &5005839961403014556 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 787533881115925206, guid: 3419328d8930e0944bee443c4bd0fd99, type: 3}

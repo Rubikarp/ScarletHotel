@@ -2,13 +2,12 @@
     "name": "Common",
     "rootNamespace": "",
     "references": [
-        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
-        "GUID:15fc0a57446b3144c949da3e2b9737a9",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
-        "GUID:7be4b7fb8acfcac46b7d006b7f4b249e",
-        "GUID:b386b82524a18664cb2c1774a7c64298"
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "Common",
+        "DOTween.Modules"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -6,13 +6,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using System;
 
 [RequireComponent(typeof(RectTransform))]
-[RequireComponent(typeof(CardManipulation))]
+[RequireComponent(typeof(DragElement))]
 public abstract class BaseGameCard: MonoBehaviour
 {
     private CardHandler cardHandler;
-    private CardManipulation card;
+    private DragElement card;
 
     [Header("Components")]
     public GameTimer Timer;
@@ -86,26 +87,21 @@ public abstract class BaseGameCard: MonoBehaviour
     protected virtual void Start()
     {
         cardHandler = CardHandler.Instance;
-        card = GetComponent<CardManipulation>();
+        card = GetComponent<DragElement>();
 
-        card.BeginDragEvent.AddListener(OnDragStart);
-        card.EndDragEvent.AddListener(OnDragRelease);
+        card.onDragBegin.AddListener(OnDragStart);
+        card.onDragEnd.AddListener(OnDragRelease);
 
         Timer.OnTimerEnd.AddListener(OnTimerEnd);
     }
 
-    protected void OnDragStart(CardManipulation card)
+    protected void OnDragStart(DragElement card, PointerEventData pointerData)
     {
         CurrentSlot?.ReleaseCard(this);
         transform.SetParent(cardHandler.CardHandlingContainer, false);
     }
-    protected void OnDragRelease(CardManipulation card)
+    protected void OnDragRelease(DragElement card, PointerEventData pointerData)
     {
-        PointerEventData pointerData = new PointerEventData(EventSystem.current)
-        {
-            position = Mouse.current.position.ReadValue()
-        };
-
         List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerData, raycastResults);
 
