@@ -2,8 +2,8 @@
     "name": "SettingsTools",
     "rootNamespace": "",
     "references": [
-        "GUID:9886398638d2cbb44862e7a3c6312d40",
-        "GUID:2bafac87e7f4b9b418d9448d219b01ab"
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
+        "GUID:71c2da67b72385b48a095be0d0ba9e1b"
     ],
     "includePlatforms": [
         "Editor"

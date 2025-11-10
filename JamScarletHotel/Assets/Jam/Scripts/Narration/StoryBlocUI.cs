@@ -35,7 +35,7 @@ public class StoryBlocUI : MonoBehaviour
     public void LaunchStoryBloc(StoryBlocData data)
     {
         currentData = data;
-        CardSlotContainer.DeleteChildren();
+        CardSlotContainer.DeleteChildrens();
         CardSlots.Clear();
 
         CardSlots = new List<CardSlot>(data.otherChoiceAvailable.Count(x => x.NeedSpecificCard));
