@@ -26,15 +26,15 @@ public class DragElement : MonoBehaviour,
     [SerializeField, ReadOnly] private Vector3 targetPosition;
 
     [Header("Events")]
-    public DragElementEvent EnterHoverEvent = new DragElementEvent();
-    public DragElementEvent ExitHoverEvent = new DragElementEvent();
+    public DragElementEvent onHoverEnter = new DragElementEvent();
+    public DragElementEvent onHoverExit = new DragElementEvent();
     [Space]
-    public DragElementEvent MouseDownEvent = new DragElementEvent();
-    public DragElementEvent MouseUpEvent = new DragElementEvent();
+    public DragElementEvent onPressDown = new DragElementEvent();
+    public DragElementEvent onPressUp = new DragElementEvent();
     [Space]
-    public DragElementEvent BeginDragEvent = new DragElementEvent();
-    public DragElementEvent DragEvent = new DragElementEvent();
-    public DragElementEvent EndDragEvent = new DragElementEvent();
+    public DragElementEvent onDragBegin = new DragElementEvent();
+    public DragElementEvent onDrag = new DragElementEvent();
+    public DragElementEvent onDragEnd = new DragElementEvent();
 
     protected void Awake()
     {
@@ -47,7 +47,7 @@ public class DragElement : MonoBehaviour,
         if (!IsInteractable) return;
 
         isDragging = true;
-        BeginDragEvent.Invoke(this, eventData);
+        onDragBegin.Invoke(this, eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -64,14 +64,14 @@ public class DragElement : MonoBehaviour,
         targetPosition = (Vector3)localPointerPos + dragOffset;
         rectTransform.localPosition = targetPosition;
 
-        DragEvent.Invoke(this, eventData);
+        onDrag.Invoke(this, eventData);
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (!IsInteractable) return;
 
         isDragging = false;
-        EndDragEvent.Invoke(this, eventData);
+        onDragEnd.Invoke(this, eventData);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -79,14 +79,14 @@ public class DragElement : MonoBehaviour,
         if (!IsInteractable) return;
 
         IsHovering = true;
-        EnterHoverEvent.Invoke(this, eventData);
+        onHoverEnter.Invoke(this, eventData);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!IsInteractable) return;
 
         IsHovering = false;
-        ExitHoverEvent.Invoke(this, eventData);
+        onHoverExit.Invoke(this, eventData);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -103,13 +103,13 @@ public class DragElement : MonoBehaviour,
         dragOffset = rectTransform.localPosition - (Vector3)localPointerPos;
 
         isPressed = true;
-        MouseDownEvent.Invoke(this, eventData);
+        onPressDown.Invoke(this, eventData);
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         if (!IsInteractable) return;
 
         isPressed = false;
-        MouseUpEvent.Invoke(this, eventData);
+        onPressUp.Invoke(this, eventData);
     }
 }
