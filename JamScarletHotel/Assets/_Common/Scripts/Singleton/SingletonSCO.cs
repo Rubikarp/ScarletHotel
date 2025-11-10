@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 /// <summary>
 /// Abstract class for making reload-proof singletons out of ScriptableObjects
@@ -7,7 +8,7 @@
 /// </summary>
 /// <typeparam name="T">Singleton type</typeparam>
 
-public abstract class SingletonSCO<T> : ScriptableObject where T : ScriptableObject
+public abstract class SingletonSCO<T> : SerializedScriptableObject where T : SerializedScriptableObject
 {
     protected static T instance;
     public static bool HasInstance => instance != null;
@@ -17,10 +18,10 @@ public abstract class SingletonSCO<T> : ScriptableObject where T : ScriptableObj
     {
         get
         {
-            if (HasInstance)
+            if (!HasInstance)
             {
                 instance = TryGetInstance();
-                if (HasInstance)
+                if (!HasInstance)
                 {
                     Debug.LogError($"SingletonSCO: {typeof(T).Name} not found in Resources. " +
                         $"Make sure it is properly placed in a Resources folder, and its name is the same as its script.");

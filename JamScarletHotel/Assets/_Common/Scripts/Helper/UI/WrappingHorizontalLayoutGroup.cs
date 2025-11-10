@@ -108,10 +108,6 @@ public class WrappingHorizontalLayoutGroup : LayoutGroup
 
         SetLayoutInputForAxis(containerSize.x, totalPreferredSize.x, totalPreferredSize.x, 0);
         SetLayoutInputForAxis(containerSize.y, totalPreferredSize.y, totalPreferredSize.y,  1);
-
-        m_TotalMinSize = contentSize;
-        m_TotalFlexibleSize = totalPreferredSize;
-        m_TotalPreferredSize = totalPreferredSize;
     }
 
     private void AlignLine(List<RectTransform> lineChildren, float lineWidth, float containerWidth)

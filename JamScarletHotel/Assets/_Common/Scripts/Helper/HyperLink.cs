@@ -19,7 +19,7 @@ namespace SevenLies.core
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            OpenLink();
+            //OpenLink();
         }
 
         public void OnPointerDown(PointerEventData eventData)

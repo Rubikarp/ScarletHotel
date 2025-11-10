@@ -24,9 +24,9 @@ public static class Extension_String
         tmp = Regex.Replace(tmp, @"(\*|_)(.+?)\1", "<i>$2</i>");
 
         // Headings: # text ? <size=150%><b>text</b></size>
-        tmp = Regex.Replace(tmp, @"^# (.+)$", "<size=150%><b>$1</b></size>", RegexOptions.Multiline);
-        tmp = Regex.Replace(tmp, @"^## (.+)$", "<size=125%><b>$1</b></size>", RegexOptions.Multiline);
-        tmp = Regex.Replace(tmp, @"^### (.+)$", "<size=110%><b>$1</b></size>", RegexOptions.Multiline);
+        tmp = Regex.Replace(tmp, @"^# (.+)$", "<Size=150%><b>$1</b></Size>", RegexOptions.Multiline);
+        tmp = Regex.Replace(tmp, @"^## (.+)$", "<Size=125%><b>$1</b></Size>", RegexOptions.Multiline);
+        tmp = Regex.Replace(tmp, @"^### (.+)$", "<Size=110%><b>$1</b></Size>", RegexOptions.Multiline);
 
         // Hyperlinks Stylization : [text](url) ? <color=#2980b9><u>text</u></color>
         tmp = Regex.Replace(tmp, @"\[(.+?)\]\((.+?)\)", $"<color=#{urlColorHex}><u>$1</u></color>");

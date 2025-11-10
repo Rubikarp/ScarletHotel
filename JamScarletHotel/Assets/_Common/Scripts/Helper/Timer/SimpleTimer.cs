@@ -31,17 +31,16 @@ public class SimpleTimer : MonoBehaviour
 		onSecondUpdate?.Invoke(lastDigit);
 	}
 
-	void OnEnable()
+    private void OnEnable()
 	{
 		currentTime = duration;
 	}
-
 	private void OnDisable()
 	{
 		currentTime = 0;
 	}
 
-	void Update()
+    private void Update()
 	{
 		if (pause) return;
 		if (currentTime <= 0f) return;

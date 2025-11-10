@@ -36,7 +36,7 @@ namespace WG.Common
         [Button]
         private void SpawnArea()
         {
-            transform.DeleteChildren();
+            transform.DeleteChildrens();
             if (FocusZone == null)
             {
                 var go = GameObject.Instantiate(new GameObject("Focus", typeof(RectTransform), typeof(Image)), transform);

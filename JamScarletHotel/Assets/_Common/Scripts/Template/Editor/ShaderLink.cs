@@ -1,6 +1,5 @@
 using UnityEngine;
-
-
+using Sirenix.OdinInspector;
 public class ShaderLink : MonoBehaviour
 {
     protected Renderer render = null;

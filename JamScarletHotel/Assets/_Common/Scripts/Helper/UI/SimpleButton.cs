@@ -1,18 +1,26 @@
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
-using DG.Tweening;
 using Sirenix.OdinInspector;
-using UnityEngine.Events;
+using DG.Tweening;
+using TMPro;
 
+[RequireComponent(typeof(RectTransform))]
 public class SimpleButton : Selectable, IPointerClickHandler, ISubmitHandler
 {
+    public RectTransform rectTransform => (RectTransform)transform;
+
     [Header("Button Elements")]
-    [SerializeField, Required] private MaskableGraphic[] coloredFont;
-    [SerializeField, Required] private MaskableGraphic[] coloredBackground;
+    [SerializeField, Required] protected TextMeshProUGUI primaryTextSlot;
+    [field: SerializeField] public bool HasSecondaryText { get; set; } = false;
+    [ShowIf("HasSecondaryText"), SerializeField] protected TextMeshProUGUI secondaryTextSlot;
     [Space]
-    [SerializeField] private Color fontColor = Color.black;
-    [SerializeField] private Color backgroundColor = Color.white;
+    [SerializeField, Required] protected MaskableGraphic[] coloredFont;
+    [SerializeField, Required] protected MaskableGraphic[] coloredBackground;
+    [Space]
+    [SerializeField] protected Color fontColor = Color.black;
+    [SerializeField] protected Color backgroundColor = Color.white;
 
     public UnityEvent onClick;
 
@@ -27,6 +35,22 @@ public class SimpleButton : Selectable, IPointerClickHandler, ISubmitHandler
 
         foreach (var txt in coloredFont) txt.color = fontColor;
         foreach (var img in coloredBackground) img.color = backgroundColor;
+    }
+
+    public void UpdateText(string textContent)
+    {
+        primaryTextSlot.text = textContent;
+    }
+    public void UpdateSecondaryText(string textContent)
+    {
+        if(!HasSecondaryText) return;
+        if(secondaryTextSlot == null)
+        {
+            Debug.LogError("Try to update secondary text, but the slot is not assigned.", this); 
+            return;
+        }
+
+        secondaryTextSlot.text = textContent;
     }
 
     private void Press()
