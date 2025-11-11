@@ -23,6 +23,10 @@ public class LootUI : MonoBehaviour
     [Header("Events")]
     public UnityEvent onLootCollected;
 
+    private void Awake()
+    {
+        concludeButton.onClick.AddListener(OnCollectAll);
+    }
     public void SetupCardSlots(StoryChoice choiceMade)
     {
         currentChoice = choiceMade;
@@ -40,16 +44,9 @@ public class LootUI : MonoBehaviour
         }
 
         UpdateConcludeButtonText();
-        concludeButton.onClick.AddListener(OnCollectAll);
     }
     public void OnCollectAll()
     {
-        if (CardSlots.Count == 0)
-        {
-            onLootCollected?.Invoke();
-            return;
-        }
-
         for (int i = CardSlots.Count - 1; i >= 0; i--)
         {
             var slot = CardSlots[i];
@@ -62,6 +59,9 @@ public class LootUI : MonoBehaviour
             CardSlots.Remove(slot);
             Destroy(slot.gameObject);
         }
+
+        UpdateConcludeButtonText();
+        onLootCollected?.Invoke();
     }
 
     private void UpdateConcludeButtonText()
