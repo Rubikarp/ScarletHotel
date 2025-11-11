@@ -1,9 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine.EventSystems;
-using UnityEngine;
+using AYellowpaper;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(DragElement))]
@@ -39,7 +40,7 @@ public abstract class BaseGameCard: MonoBehaviour
     }
 
     [Header("Data")]
-    [OdinSerialize]
+    [SerializeField, RequireInterface(typeof(ICardData))]
     protected ICardData currentData;
     private ICardData previousData;
     public ICardData CardData => currentData;
@@ -50,6 +51,7 @@ public abstract class BaseGameCard: MonoBehaviour
         if (IsValidCardData())
         {
             LoadData();
+            Visual.CardData = currentData;
         }
         else
         {
