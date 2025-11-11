@@ -23,36 +23,19 @@ MonoBehaviour:
     avec ses mani\xE8res et ses v\xEAtements de qualit\xE9. N\xE9anmoins, il n\u2019est
     pas bien vu qu\u2019une jeune fille non mari\xE9e r\xE9side seule \xE0 l\u2019h\xF4tel. "
   defaultChoice:
-    actionName: Refuser
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Vous expliquez poliment \xE0 la jeune fille que l'h\xF4tel est
-        complet et lui indiquez d\u2019autres h\xF4tels dans le quartier."
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
-    InfluenceNeeded: 0
-    NextBloc: {fileID: 0}
+    description: Accepter
+    resolution: "Emma prend la cl\xE9 que vous lui tendez et vous paie pour trois
+      nuits. Elle part vers sa chambre en laissant ses bagages, attendant naturellement
+      que vous les lui montiez. Elle a clairement l\u2019habitude de la bonne soci\xE9t\xE9,
+      pas \xE9tonnant qu\u2019elle soit mal \xE0 l\u2019aise dans votre h\xF4tel.
+      \n+ 150 currency, scandale + 1"
+    requirements: []
+    NextBloc: {fileID: 11400000, guid: 98c4a809cf131ea45b43a3096cfaa9f9, type: 2}
     lootCards: []
   otherChoiceAvailable:
-  - actionName: Accept
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Merci fr\xE9ro tu r\xE9gales"
-    NeedSpecificCard: 1
-    CardTypeNeeded: 1
-    InfluenceNeeded: 0
-    NextBloc: {fileID: 0}
-    lootCards: []
-  - actionName: Garde !!!!
-    response:
-      Character: {fileID: 0}
-      dialogueText: '?!?
-
-        Mais j''ai rien fait
-
-        (mange son gros seum)'
-    NeedSpecificCard: 1
-    CardTypeNeeded: 6
-    InfluenceNeeded: 0
+  - description: Refuser
+    resolution: "Vous expliquez poliment \xE0 la jeune fille que l'h\xF4tel est complet
+      et lui indiquez d\u2019autres h\xF4tels dans le quartier.\r\nscandale -1\r\n"
+    requirements: []
     NextBloc: {fileID: 0}
     lootCards: []

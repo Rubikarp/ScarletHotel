@@ -16,13 +16,9 @@ MonoBehaviour:
   situation: "Oups, votre propri\xE9taire est le diable. Vous avez de sombre loyers
     \xE0 payer d'ici la fin de la saison. Bonne chance"
   defaultChoice:
-    actionName: "Je suis niqu\xE9, I guess"
-    response:
-      Character: {fileID: 0}
-      dialogueText: 
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
-    InfluenceNeeded: 0
+    description: Accepter son sort
+    resolution: "Je suis niqu\xE9, I guess."
+    requirements: []
     NextBloc: {fileID: 0}
     lootCards:
     - {fileID: 11400000, guid: a9dca2b03b9580743b95e707d91b9d08, type: 2}

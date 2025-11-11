@@ -16,4 +16,6 @@ MonoBehaviour:
   seasonStoryStart: 0
   seasonTriggerTime: 0.536
   storyBlocs:
+  - {fileID: 11400000, guid: 40ab2dc3be451de40a2c0f3f4bd6fd23, type: 2}
   - {fileID: 11400000, guid: 98c4a809cf131ea45b43a3096cfaa9f9, type: 2}
+  - {fileID: 11400000, guid: 3840ab2709886834488d5fd0cb6b67d0, type: 2}

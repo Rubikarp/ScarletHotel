@@ -18,26 +18,21 @@ MonoBehaviour:
     ce couple disparate. La jeune femme s\u2019approche de la r\xE9ception avec nonchalance.
     \u201CBonjour m\u2019sieur. Combien pour louer une chambre une heure?\u201D "
   defaultChoice:
-    actionName: Refuser
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Vous ne tenez pas un h\xF4tel de passe. Vous expliquez \xE0
-        la jeune fille que vous n\u2019offrez pas ce genre de locations de courte
-        dur\xE9e. Elle comprend le message et sort, suivie de son client. "
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
-    InfluenceNeeded: 0
+    description: J'accepte
+    resolution: haha
+    requirements: []
     NextBloc: {fileID: 0}
     lootCards: []
   otherChoiceAvailable:
-  - actionName: Accepter
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Vous communiquez un prix et indiquez une chambre \xE0 l\u2019\xE9tage.
-        La prostitu\xE9e fait signe \xE0 son client qui la suit, tentant de garder
-        une contenance pour masquer sa g\xEAne. "
-    NeedSpecificCard: 1
-    CardTypeNeeded: 2
-    InfluenceNeeded: 2
+  - description: Test Carte
+    resolution: J'ai mis une carte
+    requirements:
+    - CardType: 4
+      Influence: 0
     NextBloc: {fileID: 11400000, guid: 3ba2e20dc06ce514f90262a5deece21f, type: 2}
+    lootCards: []
+  - description: Je refuse
+    resolution: 
+    requirements: []
+    NextBloc: {fileID: 0}
     lootCards: []

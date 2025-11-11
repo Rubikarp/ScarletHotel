@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Faiseuse_d'Ange_3
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Faiseuse d'Ange 3
+  situation: "La valise contient des affaires de toilettes et des v\xEAtements de
+    rechange. Plus \xE9tonnant, vous voyez de longues aiguilles \xE0 tricoter et
+    une flasque de cognac. Vous remettez les affaires en place, h\xE9sitant \xE0
+    y laisser les aiguilles avant de monter la valise. "
+  defaultChoice:
+    description: Ne rien Faire
+    resolution: 'Ce sont ses affaires. '
+    requirements: []
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - description: Prendre les aiguilles
+    resolution: Mieux vaut ne pas lui laisser ceci.
+    requirements: []
+    NextBloc: {fileID: 0}
+    lootCards:
+    - {fileID: 11400000, guid: b2c21cf672e61a74987268d08511a724, type: 2}

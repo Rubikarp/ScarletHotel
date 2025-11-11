@@ -20,25 +20,14 @@ MonoBehaviour:
     Demande Ana\xEBlle sur un ton mutin. Mon lieutenant doit me raconter ses exploits,
     j\u2019veux qu\u2019on soit confort.\u201D "
   defaultChoice:
-    actionName: Refuser
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Vous expliquez poliment que l\u2019h\xF4tel est complet. Ana\xEBlle
-        et son client partent trouver de l\u2019intimit\xE9 ailleurs."
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
-    InfluenceNeeded: 0
+    description: Do something
+    resolution: 
+    requirements: []
     NextBloc: {fileID: 0}
     lootCards: []
   otherChoiceAvailable:
-  - actionName: Accepter
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Vous tendez une cl\xE9 \xE0 Ana\xEBlle, celle-ci entra\xEEne
-        l\u2019officier \xE0 l\u2019\xE9tage en trottinant, feignant une candeur
-        enfantine."
-    NeedSpecificCard: 1
-    CardTypeNeeded: 2
-    InfluenceNeeded: 2
+  - description: Do something
+    resolution: 
+    requirements: []
     NextBloc: {fileID: 11400000, guid: 0f7bf3667f8823a4eb64ae1477fd165d, type: 2}
     lootCards: []
