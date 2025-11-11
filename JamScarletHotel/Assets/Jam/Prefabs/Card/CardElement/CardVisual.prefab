@@ -436,6 +436,8 @@ GameObject:
   - component: {fileID: 787533881115925206}
   - component: {fileID: 7496061445215458139}
   - component: {fileID: 8248073922778265125}
+  - component: {fileID: 3224928255601904670}
+  - component: {fileID: 9049093290867600248}
   m_Layer: 5
   m_Name: CardVisual
   m_TagString: Untagged
@@ -493,14 +495,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardVisual
   card: {fileID: 0}
+  movement: {fileID: 3224928255601904670}
   cardData: {fileID: 11400000, guid: 04506b9dcf0ce7e4c84f814e3941b80b, type: 2}
-  stiffness: 200
-  damping: 20
-  offset: {x: 0, y: 0, z: 0}
-  rotationSensibility: 0
   artwork: {fileID: 5462204014492114298}
   titleText: {fileID: 7937686391785925176}
   descriptionText: {fileID: 3682732346174297606}
+--- !u!114 &3224928255601904670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699052634655529002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b05dcc3a1f01a84fab89385c90c2928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragElementFollow
+  linkedElement: {fileID: 0}
+  motionStiffness: 200
+  motionDamping: 20
+  offset: {x: 0, y: 0, z: 0}
+  maxVelocity: 100
+  targetPos: {x: 0, y: 0, z: 0}
+  trajectory: {x: 0, y: 0, z: 0}
+  velocitySpeed: 0
+  <Velocity>k__BackingField: {x: 0, y: 0, z: 0}
+--- !u!114 &9049093290867600248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699052634655529002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26315308222cca04082e932823b80976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragElementFollow2DRotation
+  maxBendAngle: 150
+  bendCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8479472329396983002
 GameObject:
   m_ObjectHideFlags: 0

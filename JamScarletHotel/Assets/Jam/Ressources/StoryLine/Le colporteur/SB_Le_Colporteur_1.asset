@@ -21,24 +21,15 @@ MonoBehaviour:
     et, apr\xE8s avoir v\xE9rifi\xE9 que vous \xE9tiez seuls, \xE9tale quelques objets
     sur le comptoir de la r\xE9ception. "
   defaultChoice:
-    actionName: Refuser
-    response:
-      Character: {fileID: 0}
-      dialogueText: 
-    NeedSpecificCard: 0
-    CardTypeNeeded: 7
-    InfluenceNeeded: 0
+    description: Do something
+    resolution: 
+    requirements: []
     NextBloc: {fileID: 0}
     lootCards: []
   otherChoiceAvailable:
-  - actionName: Acheter ses objets
-    response:
-      Character: {fileID: 0}
-      dialogueText: "Vous ouvrez la caisse, posez quelques billets froiss\xE9s sur
-        le comptoir et r\xE9cup\xE9rez les objets du colporteur. "
-    NeedSpecificCard: 1
-    CardTypeNeeded: 4
-    InfluenceNeeded: 0
+  - description: Buy
+    resolution: 
+    requirements: []
     NextBloc: {fileID: 0}
     lootCards:
     - {fileID: 11400000, guid: 9fecbdcd629d4df4386a38cd7802857d, type: 2}

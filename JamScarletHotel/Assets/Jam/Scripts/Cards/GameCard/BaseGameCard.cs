@@ -1,19 +1,16 @@
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.Events;
-using UnityEngine.UI;
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.EventSystems;
+using UnityEngine;
 using Sirenix.OdinInspector;
-using System;
+using Sirenix.Serialization;
 
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(DragElement))]
 public abstract class BaseGameCard: MonoBehaviour
 {
     private CardHandler cardHandler;
-    private DragElement card;
+    public DragElement dragElement;
 
     [Header("Components")]
     public GameTimer Timer;
@@ -31,16 +28,18 @@ public abstract class BaseGameCard: MonoBehaviour
         _currentSlot = slot;
 
         transform.SetParent(slot.transform, false);
+        Visual.transform.SetParent(slot.transform, false);
         transform.localPosition = Vector3.zero;
     }
     public void ReleaseFromSlot()
     {
+        Visual.transform.SetParent(transform, false);
         _lastSlotBuffer = _currentSlot;
         _currentSlot = null;
     }
 
     [Header("Data")]
-    [SerializeField]
+    [OdinSerialize]
     protected ICardData currentData;
     private ICardData previousData;
     public ICardData CardData => currentData;
@@ -87,10 +86,10 @@ public abstract class BaseGameCard: MonoBehaviour
     protected virtual void Start()
     {
         cardHandler = CardHandler.Instance;
-        card = GetComponent<DragElement>();
+        dragElement = GetComponent<DragElement>();
 
-        card.onDragBegin.AddListener(OnDragStart);
-        card.onDragEnd.AddListener(OnDragRelease);
+        dragElement.onDragBegin.AddListener(OnDragStart);
+        dragElement.onDragEnd.AddListener(OnDragRelease);
 
         Timer.OnTimerEnd.AddListener(OnTimerEnd);
     }
@@ -116,7 +115,10 @@ public abstract class BaseGameCard: MonoBehaviour
         }
         else
         {
-            _lastSlotBuffer?.ReceivedCard(this);
+            if(_lastSlotBuffer != null)
+                _lastSlotBuffer?.ReceivedCard(this);
+            else
+                CardHandler.Instance.Inventory.ReceivedCard(this);
         }
     }
 }

@@ -23,8 +23,7 @@ public class StoryBlocData : ScriptableObject
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        defaultChoice.NeedSpecificCard = false;
-        foreach (var choice in otherChoiceAvailable) choice.NeedSpecificCard = true;
+        if (defaultChoice.NeedSpecificCard) defaultChoice.requirements = new SlotRequirement[0];
 
         string assetPath = AssetDatabase.GetAssetPath(this);
         string currentName = System.IO.Path.GetFileNameWithoutExtension(assetPath);

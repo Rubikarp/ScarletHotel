@@ -20,10 +20,7 @@ public class CardSlot : MonoBehaviour, ICardSlot
     [Header("Info")]
     [field: SerializeField, ReadOnly]
     public BaseGameCard CurrentCard { get; private set; } = null;
-    [field: SerializeField]
-    public ECardType AcceptedType { get; private set; } = ECardType.Any;
-    [field: SerializeField]
-    public EInfluence RequiredInfluences { get; private set; } = EInfluence.None;
+    [field: SerializeField] public SlotRequirement Requirement { get; private set; } = new SlotRequirement(ECardType.Any, EInfluence.None);
     public bool IsOccupied => CurrentCard != null;
 
     [Header("Event")]
@@ -57,10 +54,10 @@ public class CardSlot : MonoBehaviour, ICardSlot
         if (IsOccupied) return false;
         var data = card.CardData;
         // Check if the card type matches the accepted type
-        if ((data.CardType & AcceptedType) == 0) return false;
+        if ((data.CardType & Requirement.CardType) == 0) return false;
 
         // Check if the card's influence meets the required influence
-        if ((data.Influence & RequiredInfluences) != RequiredInfluences) return false;
+        if ((data.Influence & Requirement.Influence) != Requirement.Influence) return false;
 
         return true;
     }
@@ -75,6 +72,11 @@ public class CardSlot : MonoBehaviour, ICardSlot
 
     public void ReceivedCard(BaseGameCard card)
     {
+        if(card == null) 
+        {
+            Debug.LogError("Try to receive null Card", this);
+            return;
+        }
         if (!CanSlotCard(card))
         {
             Debug.LogError("Cannot slot card: slot is already occupied or card does not meet conditions.");
@@ -106,10 +108,10 @@ public class CardSlot : MonoBehaviour, ICardSlot
         onCardReleased?.Invoke(card);
     }
 
+    public void SetRequirement(SlotRequirement requirement) => SetRequirement(requirement.CardType, requirement.Influence);
     public void SetRequirement(ECardType requiredType = ECardType.Any, EInfluence requiredInfluence = EInfluence.None)
     {
-        AcceptedType = requiredType;
-        RequiredInfluences = requiredInfluence;
+        Requirement = new SlotRequirement(requiredType, requiredInfluence);
 
         if (CurrentCard == null) return;
         if (!CanSlotCard(CurrentCard))

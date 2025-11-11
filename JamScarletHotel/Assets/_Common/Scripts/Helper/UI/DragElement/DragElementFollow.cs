@@ -8,7 +8,7 @@ public class DragElementFollow : MonoBehaviour
     private RectTransform rectTransform;
 
     [Header("Components")]
-    [SerializeField, Required] private DragElement linkedElement;
+    public DragElement linkedElement;
 
     [Header("Settings")]
     [Tooltip("How quickly it accelerates toward the target.")]

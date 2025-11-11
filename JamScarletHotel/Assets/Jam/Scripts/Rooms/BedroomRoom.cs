@@ -11,7 +11,7 @@
     private void Start()
     {
         // Ensure the slot accepts people
-        if (PeopleSlot != null && (PeopleSlot.AcceptedType != ECardType.People || PeopleSlot.RequiredInfluences != 0))
+        if (PeopleSlot != null && (PeopleSlot.Requirement.CardType != ECardType.People || PeopleSlot.Requirement.Influence != 0))
         {
             PeopleSlot.SetRequirement(ECardType.People, EInfluence.None);
         }

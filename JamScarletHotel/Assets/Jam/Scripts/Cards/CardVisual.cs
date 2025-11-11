@@ -25,6 +25,7 @@ public class CardVisual : MonoBehaviour
 
     [Header("CardManipulation Info")]
     [SerializeField] private BaseGameCard card;
+    [SerializeField] private DragElementFollow movement;
     [SerializeField, RequireInterface(typeof(ICardData))]
     private BaseCardData cardData;
     public ICardData CardData
@@ -46,6 +47,7 @@ public class CardVisual : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         LinkToCard(GetComponentInParent<BaseGameCard>());
+        movement.linkedElement = card.dragElement;
     }
     public void OnValidate()
     {

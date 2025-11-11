@@ -102,12 +102,12 @@ public class WrappingHorizontalLayoutGroup : LayoutGroup
         // Utilise la méthode SetLayoutInputForAxis pour définir les tailles préférées
         // Axe 0 = horizontal, Axe 1 = vertical
         Vector2 totalPreferredSize = new Vector2(
-            containerSize.x + (padding.left + padding.right), 
-            containerSize.y + (padding.top + padding.bottom)
+            contentSize.x + (padding.left + padding.right),
+            contentSize.y + (padding.top + padding.bottom)
             );
 
-        SetLayoutInputForAxis(containerSize.x, totalPreferredSize.x, totalPreferredSize.x, 0);
-        SetLayoutInputForAxis(containerSize.y, totalPreferredSize.y, totalPreferredSize.y,  1);
+        SetLayoutInputForAxis(contentSize.x, totalPreferredSize.x, totalPreferredSize.x, 0);
+        SetLayoutInputForAxis(contentSize.y, totalPreferredSize.y, totalPreferredSize.y,  1);
     }
 
     private void AlignLine(List<RectTransform> lineChildren, float lineWidth, float containerWidth)

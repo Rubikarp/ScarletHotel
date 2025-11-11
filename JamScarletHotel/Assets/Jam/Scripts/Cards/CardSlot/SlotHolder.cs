@@ -23,13 +23,18 @@ public class SlotHolder : MonoBehaviour, ICardSlot
 
     public bool CanSlotCard(BaseGameCard card)
     {
-        if(!HasNoLimit) return true;
+        if (!HasNoLimit) return true;
 
         return cardSlots.Count(slot => slot.IsOccupied == true) >= SlotLimit;
     }
 
     public void ReceivedCard(BaseGameCard card)
     {
+        if (card == null)
+        {
+            Debug.LogError("Cannot slot null card", this);
+            return;
+        }
         if (!CanSlotCard(card))
         {
             Debug.LogError("Cannot slot card: no slot available slot", this);
@@ -37,7 +42,7 @@ public class SlotHolder : MonoBehaviour, ICardSlot
         }
 
         var slot = cardSlots.Where(slot => !slot.IsOccupied).FirstOrDefault();
-        if (slot == null) 
+        if (slot == null)
         {
             slot = AddNewSlot();
         }
@@ -71,7 +76,7 @@ public class SlotHolder : MonoBehaviour, ICardSlot
     {
         if (!HasNoLimit)
         {
-            if(cardSlots.Count > SlotLimit)
+            if (cardSlots.Count > SlotLimit)
             {
                 //Remove excess slot
                 var keep = cardSlots.Take(SlotLimit);

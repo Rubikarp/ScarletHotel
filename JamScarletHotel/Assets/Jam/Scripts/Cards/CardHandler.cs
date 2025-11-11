@@ -22,7 +22,7 @@ public class CardHandler : Singleton<CardHandler>
     [Button] public void DEBUG_ClientCard() => SpawnCard(debugClientCard as ICardData);
     [Button] public void DEBUG_ObjectCard() => SpawnCard(debugObjectCard as ICardData);
 
-    public void SpawnCard(ICardData cardData, ICardSlot slot = null)
+    public BaseGameCard SpawnCard(ICardData cardData, ICardSlot slot = null)
     {
         BaseGameCard card = null;
         switch (cardData.CardType)
@@ -40,7 +40,7 @@ public class CardHandler : Singleton<CardHandler>
             case ECardType.Any:
             case ECardType.People:
                 Debug.LogError($"Can't spawn Any or People specific card", this);
-                return;
+                return null;
         }
 
         card.TryLoadData(cardData);
@@ -53,7 +53,8 @@ public class CardHandler : Singleton<CardHandler>
         {
             Inventory.ReceivedCard(card);
         }
+        return card;
     }
 
-    public void SpawnCardInHand(ICardData cardData) => SpawnCard(cardData, Inventory);
+    public BaseGameCard SpawnCardInHand(ICardData cardData) => SpawnCard(cardData, Inventory);
 }
