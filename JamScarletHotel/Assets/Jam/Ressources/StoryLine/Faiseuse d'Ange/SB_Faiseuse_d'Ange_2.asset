@@ -13,21 +13,58 @@ MonoBehaviour:
   m_Name: SB_Faiseuse_d'Ange_2
   m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
   blocName: Faiseuse d'Ange 2
-  situation: Emma attends que vous lui indiquiez sa chambre.
+  situation: "Cela fait plus d\u2019une journ\xE9e qu\u2019Emma n\u2019a pas quitt\xE9
+    sa chambre. Apr\xE8s vous \xEAtre annonc\xE9 \xE0 la porte sans obtenir de r\xE9action,
+    vous prenez votre cl\xE9 et entrez. Les draps sont imbib\xE9s de sang. Emma est
+    allong\xE9e sur le lit, livide, elle semble \xE0 peine consciente. Par terre
+    g\xEEt une longue aiguille \xE0 tricoter enduite d\u2019un liquide \xE9carlate.
+    Consid\xE9r\xE9s comme un meurtre par la loi, les avortements sont r\xE9alis\xE9s
+    dans la clandestinit\xE9s et comme dans le cas d\u2019Emma, peuvent provoquer
+    des blessures mortelles. "
   defaultChoice:
-    description: Accepter
-    resolution: "Emma prend la cl\xE9 que vous lui tendez et vous paie pour trois
-      nuits. Elle part vers sa chambre en laissant ses bagages, attendant naturellement
-      que vous les lui montiez. Elle a clairement l\u2019habitude de la bonne soci\xE9t\xE9,
-      pas \xE9tonnant qu\u2019elle soit mal \xE0 l\u2019aise dans votre h\xF4tel.
-      \n+ 150 currency, scandale + 1"
+    description: "Pr\xE9venir les secours\u2026 et la police. "
+    resolution: "Vous ne pouvez pas vous permettre d\u2019\xEAtre associ\xE9s \xE0
+      un crime. La police arrive peu apr\xE8s les secours, et un inspecteur prend
+      votre d\xE9position. Il consulte les papiers d\u2019Emma et r\xE9quisitionne
+      votre t\xE9l\xE9phone pour contacter sa famille. Tandis que les ambulanciers
+      emm\xE8nent la jeune fille \xE0 l\u2019h\xF4pital, vous prenez le combin\xE9
+      suppl\xE9mentaire dans l\u2019arri\xE8re salle et \xE9coutez la conversation
+      houleuse entre l\u2019inspecteur et les parents. Les mots \u201Chonte\u201D
+      et \u201Cscandale\u201D reviennent plusieurs fois. Le p\xE8re d\u2019Emma insiste
+      pour trouver une solution amiable mais l\u2019agent ne transige pas et lui
+      donne rendez-vous au commissariat. Quand tout ce monde s\u2019en va, il ne
+      reste du passage d\u2019Emma que les draps ensanglant\xE9s \xE0 nettoyer. \r\nSuspicion
+      -1, Scandale +1"
     requirements: []
     NextBloc: {fileID: 0}
     lootCards: []
   otherChoiceAvailable:
-  - description: "Fouiller la valise d\u2019Emma avant de la monter. "
-    resolution: "Vous envoyez Emma vers sa chambre et profitez du r\xE9pit pour fouiller
-      sa valise. "
-    requirements: []
-    NextBloc: {fileID: 11400000, guid: 3840ab2709886834488d5fd0cb6b67d0, type: 2}
+  - description: Laisser Emma mourir
+    resolution: "Cette jeune femme s\u2019est bless\xE9e elle-m\xEAme, ce n\u2019est
+      pas comme si vous \xE9tiez responsable. Et puis, vous avez un loyer \xE0 payer.
+      Vous placez l\u2019\xE9ch\xE9ance de chair sur son ventre et attendez patiemment
+      que l\u2019h\xE9morragie conclut son \u0153uvre. Emma devient de plus en plus
+      livide, sa respiration de plus en plus faible. Le passage de vie \xE0 tr\xE9pas
+      serait presque imperceptible, si ce n\u2019\xE9tait pour le contrat sur son
+      ventre qui se froissait et d\xE9froissait soudainement, comme pris d\u2019un
+      spasme, avant de s\u2019enflammer et de partir en fum\xE9e. Vous pr\xE9venez
+      alors les secours. La mort d\u2019Emma attire la curiosit\xE9 polici\xE8re
+      sur votre h\xF4tel mais la sc\xE8ne ne laisse pas de doute sur la cause du
+      d\xE9c\xE8s. \r\nSuspicion +3, tribut de chair pay\xE9"
+    requirements:
+    - CardType: 1
+      Influence: 129
+    NextBloc: {fileID: 0}
+    lootCards: []
+  - description: Soigner Emma
+    resolution: "Arm\xE9 de votre mat\xE9riel m\xE9dical et de vos notions de premiers
+      secours, vous tentez tant bien que mal de sauver la bless\xE9e. Vous d\xE9sinfectez
+      avec de la teinture d\u2019iode, placez des points de sutures sur les plaies
+      que vous pouvez atteindre et donnez \xE0 Emma de la morphine. Malgr\xE9 votre
+      manque d\u2019exp\xE9rience, votre intervention rapide vous permet de sauver
+      la jeune fille. Vous quittez la chambre, la laissant se reposer."
+    requirements:
+    - CardType: 1
+      Influence: 64
+    NextBloc: {fileID: 11400000, guid: 5735fbb734e67a44d9dd2e13a63127e7, type: 2}
     lootCards: []

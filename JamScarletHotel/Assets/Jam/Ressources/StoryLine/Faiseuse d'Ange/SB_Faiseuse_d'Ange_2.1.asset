@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Faiseuse_d'Ange_2.1
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Faiseuse d'Ange 2.1
+  situation: "\u201CExcusez-moi.\u201D \r\nEmma a pass\xE9 quelques secondes \xE0
+    errer sans but apparent \xE0 la r\xE9ception avant de vous adresser timidement
+    la parole. \r\n\u201CIl semble que certaines de mes affaires ont \xE9t\xE9 \xE9gar\xE9es.
+    Peut-\xEAtre avez-vous trouv\xE9 quelque chose?\u201D \r\nConsid\xE9rant l\u2019absence
+    de mat\xE9riel de tricot, vous avez peu de doutes sur l\u2019usage pr\xE9vu des
+    aiguilles d\xE9rob\xE9es qu\u2019elle \xE9voque. Vous ne voyez pas de signe de
+    grossesse \xE9vident, Emma ne doit pas avoir atteint son troisi\xE8me mois. "
+  defaultChoice:
+    description: "Dire que vous n\u2019avez rien trouv\xE9"
+    resolution: "Vous faites mine de fouiller le comptoir et expliquez qu'aucun objet
+      n\u2019a \xE9t\xE9 rapport\xE9 ici. Emma insiste, visiblement inqui\xE8te et
+      frustr\xE9e par la situation. Vous vous contentez de hocher les \xE9paules
+      et promettez de lui ramener ce qu\u2019elle a perdu si quelqu\u2019un le trouve.
+      Abattue, Emma remonte, prend sa valise et quitte l\u2019h\xF4tel sans vous
+      saluer. "
+    requirements: []
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - description: ' Lui rendre les aiguilles'
+    resolution: "\u201CAh oui, on m\u2019a ramen\xE9 un objet trouv\xE9, mentez-vous.
+      Un instant.\u201D\r\nVous cherchez dans le comptoir et tendez \xE0 Emma les
+      aiguilles. Elle fait un sourire et un hochement de t\xEAte et remonte vers
+      sa chambre.\r\n"
+    requirements:
+    - CardType: 1
+      Influence: 1
+    NextBloc: {fileID: 11400000, guid: 8d4ba4510d2dc84488e615920a098e1b, type: 2}
+    lootCards: []
+  - description: 'Proposer de trouver un docteur '
+    resolution: "\u201CIl y a des mani\xE8res plus s\xFBres de faire ce que vous
+      planifiez. Un m\xE9decin, par exemple.\u201D \r\n\u201CJe ne sais pas de quoi
+      vous\u2026 Emma h\xE9site puis reprend. Je ne sais pas si j\u2019ai assez d\u2019argent
+      pour \xE7a.\u201D\r\n\u201CNous pourrons trouver une solution. Je m\u2019occupe
+      d\u2019arranger \xE7a.\u201D \r\nEmma retourne dans sa chambre tandis que vous
+      partez \xE0 la recherche d\u2019un m\xE9decin pratiquant les avortements. \r\n"
+    requirements: []
+    NextBloc: {fileID: 11400000, guid: 47a0320121e98074389bfb69997a2166, type: 2}
+    lootCards: []

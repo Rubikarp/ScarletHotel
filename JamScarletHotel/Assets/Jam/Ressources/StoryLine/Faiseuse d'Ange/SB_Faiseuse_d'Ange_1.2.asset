@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Faiseuse_d'Ange_1.2
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Faiseuse d'Ange 1.2
+  situation: Emma attends que vous lui indiquiez sa chambre.
+  defaultChoice:
+    description: "Indiquer la chambre \xE0 Emma"
+    resolution: Vous laisser Emma monter dans sa chambre.
+    requirements: []
+    NextBloc: {fileID: 11400000, guid: 8d4ba4510d2dc84488e615920a098e1b, type: 2}
+    lootCards: []
+  otherChoiceAvailable:
+  - description: "Fouiller la valise d\u2019Emma avant de la monter. "
+    resolution: "Vous envoyez Emma vers sa chambre et profitez du r\xE9pit pour fouiller
+      sa valise. "
+    requirements: []
+    NextBloc: {fileID: 11400000, guid: 3840ab2709886834488d5fd0cb6b67d0, type: 2}
+    lootCards: []

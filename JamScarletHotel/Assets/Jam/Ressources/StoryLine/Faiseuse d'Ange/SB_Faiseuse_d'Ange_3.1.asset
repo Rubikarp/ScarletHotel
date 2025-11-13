@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eeaf6feb679d54a89a17012b9a82bf, type: 3}
+  m_Name: SB_Faiseuse_d'Ange_3.1
+  m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
+  blocName: Faiseuse d'Ange 3.1
+  situation: "Ce matin, vous amenez de quoi manger dans la chambre d\u2019Emma. Elle
+    semble \xE9puis\xE9e mais moins p\xE2le qu\u2019hier. \r\n\u201CJe\u2026 Je ne
+    sais pas comment vous remercier. Pour les soins et pour votre discr\xE9tion.
+    Mes parents\u2026 Je leur ai dit que je partais en vacances chez une amie. Ils
+    ne doivent rien savoir. Mais peut \xEAtre que je pourrai leur subtiliser de l\u2019argent
+    et vous l\u2019amener plus tard?\u201D"
+  defaultChoice:
+    description: "Dire qu\u2019elle ne vous doit rien"
+    resolution: "Vous contactez plusieurs personnes, \xE0 la recherche d\u2019un
+      m\xE9decin acceptant de pratiquer les avortements. Vous finissez par trouver
+      une sage femme et convenez d\u2019un rendez vous dans la soir\xE9e. A l\u2019heure
+      dite, vous voyez cette femme de haute taille portant un sac de mat\xE9riel
+      m\xE9dical entrer dans la r\xE9ception d\u2019un pas \xE9nergique. \r\n\u201CH\xE9l\xE9na,
+      enchant\xE9e. Je vous pr\xE9viens mes honoraires sont un peu chers. Je prends
+      beaucoup de risques et je dois assurer mes arri\xE8res si je veux continuer
+      \xE0 aider des femmes comme votre cliente.\u201D \r\nVous sortez la somme et
+      la conduisez vers la chambre d\u2019Emma. H\xE9l\xE9na se pr\xE9sente, installe
+      sa patiente et lui donne un flacon d\u2019\xE9ther \xE0 inhaler. Apr\xE8s vous
+      avoir fait monter draps, serviettes et bassine d\u2019eau, elle vous chasse
+      de la chambre et commence la proc\xE9dure."
+    requirements: []
+    NextBloc: {fileID: 0}
+    lootCards: []
+  otherChoiceAvailable:
+  - description: "Laisser la proc\xE9dure se d\xE9rouler"
+    resolution: "Apr\xE8s deux heures, H\xE9l\xE9na descend \xE0 la r\xE9ception,
+      finissant d\u2019essuyer ses mains ensanglant\xE9es sur une serviette. \r\n\u201CL\u2019intervention
+      s\u2019est bien pass\xE9e, le probl\xE8me de mademoiselle est r\xE9gl\xE9.
+      Laissez l\xE0 se reposer et donnez lui \xE0 boire r\xE9guli\xE8rement.\u201D
+      \r\nVous payez la sage femme et la reconduisez vers la sortie, promettant de
+      suivre ses instructions et de garder le secret. \r\n-100 currency. "
+    requirements: []
+    NextBloc: {fileID: 11400000, guid: 5735fbb734e67a44d9dd2e13a63127e7, type: 2}
+    lootCards: []
+  - description: "Profiter de l\u2019op\xE9ration pour payer un loyer"
+    resolution: "Depuis la r\xE9ception, vous fermez les yeux et vous concentrez
+      sur l\u2019h\xF4tel. Vous sentez le vent qui siffle entre les fissures des
+      murs, les froissements du papier peint qui se d\xE9colle, la moisissure de
+      la charpente humide. Puis dans la chambre d\u2019Emma, vous sentez la force
+      vitale de ces deux femmes si concentr\xE9es en cet instant. Et une troisi\xE8me,
+      plus faible, luttant pour s\u2019accrocher \xE0 ce monde dans une bataille
+      perdue d\u2019avance. Quand vous sentez le moment venu, vous remontez dans
+      la chambre d\u2019Emma. H\xE9l\xE9na tient dans ses mains le foetus qu\u2019elle
+      vient d\u2019extraire et vous jette un regard noir. Vous lui tendez un sac
+      en toile ouvert.\r\n\u201CC\u2019est dans l\u2019int\xE9r\xEAt de tout le monde
+      que je fasse dispara\xEEtre ceci discr\xE8tement. Dites-vous en accentuant
+      ce dernier mot.\u201D  \r\nM\xE9fiante, H\xE9l\xE9na accepte n\xE9anmoins de
+      placer le petit corps dans le sac et reprend ses soins. Vous sortez de la chambre,
+      tirez l\u2019\xE9ch\xE9ance de chair de votre poche et placez le papier sur
+      le corps minuscule. Le contrat enserre le foetus puis se d\xE9tend dans un
+      spasme. Votre loyer est pay\xE9. Deux heures plus tard, H\xE9l\xE9na redescend
+      les escaliers, soutenant Emma de son bras. \r\n\u201CJe vais ramener la petite
+      \xE0 mon cabinet pour la surveiller pendant qu\u2019elle r\xE9cup\xE8re.\u201D
+      \r\nLa sage-femme ne l\xE2che pas Emma tandis qu\u2019elle attend que vous
+      la payiez. M\xEAme si elle n\u2019a sans doute pas compris le but de votre
+      geste, votre \xE9trange irruption dans la chambre a eu raison de sa confiance.
+      \r\nApr\xE8s que vous ayez sorti l\u2019argent, les deux femmes quittent l\u2019h\xF4tel.
+      \r\n- 100 currency"
+    requirements:
+    - CardType: 1
+      Influence: 129
+    NextBloc: {fileID: 0}
+    lootCards: []

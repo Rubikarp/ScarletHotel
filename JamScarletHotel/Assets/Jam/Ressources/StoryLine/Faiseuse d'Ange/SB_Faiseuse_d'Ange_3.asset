@@ -13,20 +13,44 @@ MonoBehaviour:
   m_Name: SB_Faiseuse_d'Ange_3
   m_EditorClassIdentifier: Assembly-CSharp::StoryBloc
   blocName: Faiseuse d'Ange 3
-  situation: "La valise contient des affaires de toilettes et des v\xEAtements de
-    rechange. Plus \xE9tonnant, vous voyez de longues aiguilles \xE0 tricoter et
-    une flasque de cognac. Vous remettez les affaires en place, h\xE9sitant \xE0
-    y laisser les aiguilles avant de monter la valise. "
+  situation: "Ce matin, vous amenez de quoi manger dans la chambre d\u2019Emma. Elle
+    semble \xE9puis\xE9e mais moins p\xE2le qu\u2019hier. \r\n\u201CJe\u2026 Je ne
+    sais pas comment vous remercier. Pour les soins et pour votre discr\xE9tion.
+    Mes parents\u2026 Je leur ai dit que je partais en vacances chez une amie. Ils
+    ne doivent rien savoir. Mais peut \xEAtre que je pourrai leur subtiliser de l\u2019argent
+    et vous l\u2019amener plus tard?\u201D"
   defaultChoice:
-    description: Ne rien Faire
-    resolution: 'Ce sont ses affaires. '
+    description: "Dire qu\u2019elle ne vous doit rien"
+    resolution: "\u201CVous \xEAtes un saint. Refuser de l\u2019argent alors que
+      vous en avez clairement besoin, ajoute-t-elle en observant les moisissures
+      sur le papier peint. J\u2019essaierais de rendre votre g\xE9n\xE9rosit\xE9,
+      \xE0 vous o\xF9 \xE0 quelqu\u2019un d\u2019autre.\u201D \r\nVous laissez Emma
+      se reposer, quelques heures plus tard elle prend ses affaires et quitte l\u2019h\xF4tel. "
     requirements: []
     NextBloc: {fileID: 0}
     lootCards: []
   otherChoiceAvailable:
-  - description: Prendre les aiguilles
-    resolution: Mieux vaut ne pas lui laisser ceci.
+  - description: Demander un paiement
+    resolution: "Vous acceptez la proposition d\u2019Emma et la laisser se reposer.
+      Quelques heures plus tard, elle prend ses affaires et quitte l\u2019h\xF4tel.
+      La semaine suivante, vous recevez par la poste une enveloppe non sign\xE9e
+      contenant une mince pile de billets. \r\nCurrency + 150"
     requirements: []
     NextBloc: {fileID: 0}
-    lootCards:
-    - {fileID: 11400000, guid: b2c21cf672e61a74987268d08511a724, type: 2}
+    lootCards: []
+  - description: 'Proposer de trouver un docteur '
+    resolution: "\u201CAvant de parler de \xE7a, avez vous encore mal? Demandez-vous.\u201D
+      \r\nEmma acquiesce, alors vous lui injectez une dose de morphine qui vous reste
+      des soins de la veille. \r\n\u201COn peut trouver un autre arrangement. Reprenez-vous,
+      signer une reconnaissance de dette pour plus tard. Je ne veux pas vous faire
+      voler vos parents.\u201D \r\nVous sortez alors le contrat d\u2019\xE2me de
+      votre poche de veste et le lui pr\xE9sentez. Elle parcourt le document, les
+      yeux dans le vague, l\u2019esprit embu\xE9 par les opiac\xE9s, puis signe nonchalamment
+      \xE0 l\u2019endroit que vous lui indiquez. Le papier se contracte l\xE9g\xE8rement
+      alors qu\u2019elle appose sa signature. \r\nVous laissez Emma se reposer, quelques
+      heures plus tard elle prend ses affaires et quitte l\u2019h\xF4tel. "
+    requirements:
+    - CardType: 1
+      Influence: 136
+    NextBloc: {fileID: 0}
+    lootCards: []

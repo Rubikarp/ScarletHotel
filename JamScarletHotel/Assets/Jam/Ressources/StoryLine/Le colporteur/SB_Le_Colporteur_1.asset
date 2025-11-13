@@ -21,14 +21,14 @@ MonoBehaviour:
     et, apr\xE8s avoir v\xE9rifi\xE9 que vous \xE9tiez seuls, \xE9tale quelques objets
     sur le comptoir de la r\xE9ception. "
   defaultChoice:
-    description: Do something
-    resolution: 
+    description: Refuser
+    resolution: 'Vous renvoyez poliment le colporteur. Il reviendra plus tard. '
     requirements: []
     NextBloc: {fileID: 0}
     lootCards: []
   otherChoiceAvailable:
-  - description: Buy
-    resolution: 
+  - description: Acheter
+    resolution: "Vous allongez les billets et r\xE9cup\xE9rez ces objets disparates. "
     requirements: []
     NextBloc: {fileID: 0}
     lootCards:

@@ -16,6 +16,6 @@ MonoBehaviour:
   artwork: {fileID: 0}
   description: "Description : Votre avis d\u2019\xE9ch\xE9ance de loyer. Celui-ci
     lit \u201Cle contrat pour une \xE2me.\u201D "
-  influence: 128
+  influence: 136
   defaultState: 0
   defaultType: 8
